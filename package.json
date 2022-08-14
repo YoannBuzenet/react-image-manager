@@ -1,0 +1,17 @@
+{
+  "name": "react-image-manager",
+  "version": "1.0.0",
+  "description": "Manage your image library, crop image before uploading, or just activage the features you need",
+  "main": "imageManagerContainer.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image",
+    "imageManager",
+    "crop",
+    "upload"
+  ],
+  "author": "Yoann Buzenet",
+  "license": "MIT"
+}
