@@ -16,6 +16,9 @@ const config = {
   },
   resolve: {
     extensions: [".js", ".jsx"],
+    fallback: {
+      crypto: require.resolve("crypto-browserify"),
+    },
   },
   devServer: {
     contentBase: dir_build,
