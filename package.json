@@ -2,7 +2,7 @@
   "name": "react-image-manager",
   "version": "1.0.0",
   "description": "Manage your image library, crop image before uploading, or just activage the features you need",
-  "main": "index.js",
+  "main": "./dist/react-image-manager.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --config webpack.config.js --mode production",
