@@ -6,10 +6,7 @@ const dir_dist = path.resolve(__dirname, "dist");
 const dir_node_modules = path.resolve(__dirname, "node_modules");
 
 const config = {
-  entry: [
-    path.resolve(dir_js, "imageManagerContainer.jsx"),
-    // path.resolve(dir_js, "hooks", "hooks.js"),
-  ],
+  entry: [path.resolve(dir_js, "index.js")],
   mode: "development",
   output: {
     path: dir_build,
