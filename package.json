@@ -1,12 +1,13 @@
 {
   "name": "react-image-manager",
-  "version": "1.0.0",
+  "type": "module",
+  "version": "1.0.9",
   "description": "Manage your image library, crop image before uploading, or just activage the features you need",
   "main": "./dist/react-image-manager.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --config webpack.config.js --mode production",
-    "build": "webpack"
+    "dev": "webpack --watch",
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [
     "image",
@@ -15,6 +16,10 @@
     "upload"
   ],
   "author": "Yoann Buzenet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoannBuzenet/react-image-manager"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
@@ -32,5 +37,9 @@
     "react-hot-loader": "^4.13.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10"
+  },
+  "exports": {
+    ".": "./dist/react-image-manager.js",
+    "./hooks": "./src/hooks/hooks.js"
   }
 }

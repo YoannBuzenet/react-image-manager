@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import ImageManagerContext from "../contexts/index";
+import { useState, useEffect } from "react";
 
 export function useImageManager() {
   const { isDisplayedImageManager, setIsDisplayedImageManager } =
@@ -7,8 +8,6 @@ export function useImageManager() {
 
   return { isDisplayedImageManager, setIsDisplayedImageManager };
 }
-
-import { useState, useEffect } from "react";
 
 function getWindowDimensions() {
   if (typeof window !== "undefined") {

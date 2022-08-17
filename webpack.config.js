@@ -13,6 +13,7 @@ const config = {
     library: "ReactImageManager",
     filename: "react-image-manager.js",
     libraryTarget: "umd",
+    globalObject: "this",
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -27,14 +28,14 @@ const config = {
   },
   module: {
     rules: [
-      {
-        use: "react-hot-loader/webpack",
-        test: dir_js,
-        exclude: dir_node_modules,
-      },
+      //   {
+      //     use: "react-hot-loader/webpack",
+      //     test: /\.js$|jsx/,
+      //     exclude: dir_node_modules,
+      //   },
       {
         use: "babel-loader",
-        test: dir_js,
+        test: /\.js|\.jsx$/,
         exclude: dir_node_modules,
       },
     ],
