@@ -1,8 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import ImageManagerContext from "./contexts/index";
 import ImageManager from "./imageManager";
 
-const ImageManagerContainer = ({
+export const ImageManagerContainer = ({
   children,
   cropAspectRatio,
   cropMinWidth,
@@ -80,5 +81,3 @@ const ImageManagerContainer = ({
     </ImageManagerContext.Provider>
   );
 };
-
-export default ImageManagerContainer;
