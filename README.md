@@ -5,6 +5,18 @@ This lib allows yo do two things :
 - Crop images and upload them to your server (using react-image-crop library)
 - See your images in galleries
 
+## Make it work
+
+1. At the root of your React tree, wrap your app with `ImageManagerContainer` component.
+   `import { ImageManagerContainer } from "react-image-manager";`
+
+2. Pass the right props to `ImageManagerContainer` to make it work. Constraint the crop ratio, pass the array of images that will be displayed, allow or disallow multi selection, choose min width of image upload...
+
+3. To make the component appear, use the hook `useImageManager`
+   `import { useImageManager } from "react-image-manager";`
+   `const { isDisplayedImageManager, setIsDisplayedImageManager } = useImageManager();`
+   and just call `setIsDisplayedImageManager(true);`
+
 ## Choose mode
 
 Via the `mode` props, you can either choose gallery only mode, or crop only, or both.
