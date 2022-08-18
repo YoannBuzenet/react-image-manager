@@ -37,6 +37,10 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 
 - To make react-jss work, you need to implement this in \_document.jsx : https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
 
+### Various
+
+[Gist](https://gist.github.com/YoannBuzenet/0ad6c2aa5f8f815e91282e2e26be949d) on how to resize the image with sharp library, server side
+
 TO DO
 
 - Add types
