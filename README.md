@@ -1,22 +1,32 @@
-### Handle css files
+# How it works
 
-- Where are they after webpack did its stuff ?
+This lib allows yo do two things :
 
-### What to put in publish ? We should remove a lot of stuff (see react paginate lib)
+- Crop images and upload them to your server (using react-image-crop library)
+- See your images in galleries
 
-### Make it work
+## Choose mode
 
-### DOc to precise
+Via the `mode` props, you can either choose gallery only mode, or crop only, or both.
 
-- Add css file import for crop lib in \_app.tsx
+## Style
 
-- Add css file for file input file
+CSS can be customized. Pagination and upload inputs are handled through classic css files, the rest is in react-jss to allow customization through props.
 
-- Add css for pagination (import "../module/style/pagination.css";)
+### Import CSS files
 
-- nextjs : Add document pour react-jss (https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js)
+Import CSS files in your app. If you are running a next app, it should be in \_app.jsx file.
 
-TO do later
+- `import "react-image-manager/dist/style.css";`
+- `import "react-image-manager/dist/pagination.css";`
+- `import "react-image-crop/dist/ReactCrop.css";`
 
+### Nextjs apps
+
+- To make react-jss work, you need to implement this in \_document.jsx : https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
+
+TO DO
+
+- Add types
 - We can zoom and rotate the image in uploader
 - We can add custom component in gallery to handle systems like tags
