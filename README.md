@@ -13,9 +13,10 @@ This lib allows yo do two things :
 2. Pass the right props to `ImageManagerContainer` to make it work. Constraint the crop ratio, pass the array of images that will be displayed, allow or disallow multi selection, choose min width of image upload...
 
 3. To make the component appear, use the hook `useImageManager` <br />
-   `import { useImageManager } from "react-image-manager";`
-   `const { isDisplayedImageManager, setIsDisplayedImageManager } = useImageManager();`
-   and just call `setIsDisplayedImageManager(true);`
+   ```import { useImageManager } from "react-image-manager";
+   const { isDisplayedImageManager, setIsDisplayedImageManager } = useImageManager();
+   setIsDisplayedImageManager(true);
+   ```
 
 ## Choose mode
 
