@@ -7,12 +7,12 @@ This lib allows yo do two things :
 
 ## Make it work
 
-1. At the root of your React tree, wrap your app with `ImageManagerContainer` component.
+1. At the root of your React tree, wrap your app with `ImageManagerContainer` component. <br />
    `import { ImageManagerContainer } from "react-image-manager";`
 
 2. Pass the right props to `ImageManagerContainer` to make it work. Constraint the crop ratio, pass the array of images that will be displayed, allow or disallow multi selection, choose min width of image upload...
 
-3. To make the component appear, use the hook `useImageManager`
+3. To make the component appear, use the hook `useImageManager` <br />
    `import { useImageManager } from "react-image-manager";`
    `const { isDisplayedImageManager, setIsDisplayedImageManager } = useImageManager();`
    and just call `setIsDisplayedImageManager(true);`
