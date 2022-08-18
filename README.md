@@ -19,7 +19,8 @@ This lib allows yo do two things :
 
 ## Choose mode
 
-Via the `mode` props, you can either choose gallery only mode, or crop only, or both.
+Via the `enabledModes` props, you can either choose gallery only mode, or upload only, or both. <br />
+`enabledModes={["gallery", "upload"]}`
 
 ## Style
 
