@@ -1,17 +1,17 @@
 # Upload
 
-![Illustration Example Upload Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif)
+![Illustration Example Upload Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif | width=100)
 
 # Manage Image Library
 
-![Illustration Example Manage Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif)
+<img src="(https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif" width="100">
 
 # How it works
 
 This lib allows yo do two things :
 
-- Crop images and upload them to your server (using react-image-crop library)
-- See your images in galleries
+- Crop images and upload them to your server (using react-image-crop library). The server will receive all info to resize the image (gist to help for server below)
+- See your images in galleries, and select the one you want
 
 ## Make it work
 
@@ -55,6 +55,11 @@ This lib allows yo do two things :
 - `onFailureupload` : Callback called when upload was failed. Could be a notification.
 - `imageFields` : Array of properties you would like your user to fulfill when uploading an image.
 - `minWidthImageUpload` : Minimum width of pixels of image that user can upload.
+
+All react-image-crop props can be used to custom the crop feature. For example :
+
+- `cropAspectRatio` : Choose the ratio of how you want to crop the image.
+- All other are availables on the doc of the library.
 
 ## Style
 
