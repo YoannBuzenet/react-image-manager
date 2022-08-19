@@ -27,13 +27,24 @@ This lib allows yo do two things :
    ```JSX
    import { useImageManager } from "react-image-manager";
    const { isDisplayedImageManager, setIsDisplayedImageManager } = useImageManager();
-   setIsDisplayedImageManager(true);
+   setIsDisplayedImageManager(true); // Add this where needed to display it when wanted
    ```
 
-## Choose mode
+## Props
 
-Via the `enabledModes` props, you can either choose gallery only mode, or upload only, or both. <br />
-`enabledModes={["gallery", "upload"]}`
+- `enabledModes` <br />
+  Do you only want the gallery mode or upload, or both ? Choose with this prop. <br />
+  `enabledModes={["gallery", "upload"]}`
+- `galleryImages`<br />
+  Array of images you will display in the gallery. Can either be a url, or an object with the following shape :
+  ```js
+  const image = {
+    src: "url",
+    name: "imageName",
+    credits: "imageCredits",
+  };
+  ```
+- `canSelectSeveralImages` : boolean to allow or not to select several image in the gallery.
 
 ## Style
 
