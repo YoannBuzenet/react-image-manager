@@ -3,11 +3,13 @@
 <p align="center">
 <img src="https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif" width="500"/>
 </p>
+
 # Manage Image Library
 
 <p align="center">
 <img src="https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif" width="500"/>
 </p>
+
 # How it works
 
 This lib allows yo do two things :
