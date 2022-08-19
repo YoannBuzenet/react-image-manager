@@ -1,10 +1,10 @@
 # Upload
 
-![Illustration Example Upload Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif | width=100)
+![Illustration Example Upload Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif)
 
 # Manage Image Library
 
-<img src="(https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif" width="100">
+![Illustration Example Manage Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif)
 
 # How it works
 
