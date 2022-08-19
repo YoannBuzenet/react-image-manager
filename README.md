@@ -88,5 +88,6 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 TO DO
 
 - Add types
+- Allow better override of CSS and css-in-js
 - We can zoom and rotate the image in uploader
 - We can add custom component in gallery to handle systems like tags
