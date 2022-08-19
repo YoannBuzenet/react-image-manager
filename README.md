@@ -5,6 +5,7 @@
 # Manage Image Library
 
 ![Illustration Example Manage Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif)
+<img src="https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif" width="250" height="250"/>
 
 # How it works
 
