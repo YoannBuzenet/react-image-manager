@@ -11,13 +11,8 @@ This lib allows yo do two things :
 
    ```JSX
    import { ImageManagerContainer } from "react-image-manager";
-   <ImageManagerContainer
-      cropAspectRatio={2}
-      urlUpload={`urlBackEndToUploadImage`}
-      minWidthImageUpload={700}
-      enabledModes={["gallery", "upload"]}
-      galleryImages={["imageUrl", "imageUrl"]}>
-   <App />
+   <ImageManagerContainer>
+      <App />
    </ImageManagerContainer>
    ```
 
@@ -45,6 +40,13 @@ This lib allows yo do two things :
   };
   ```
 - `canSelectSeveralImages` : boolean to allow or not to select several image in the gallery.
+- `onSelectImages` : Callback method that will be called when user validates images selection from gallery.
+- `urlUpload` : URL where image to upload will be sent.
+- `axiosHeadersUpload` : Axios headers you would like to pass when uploading, for auth purpose for example.
+- `onSuccessUpload` : Callback called when upload was successful. Could be a notification.
+- `onFailureupload` : Callback called when upload was failed. Could be a notification.
+- `imageFields` : Array of properties you would like your user to fulfill when uploading an image.
+- `minWidthImageUpload` : Minimum width of pixels of image that user can upload.
 
 ## Style
 
