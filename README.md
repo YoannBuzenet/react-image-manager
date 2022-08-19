@@ -1,3 +1,11 @@
+# Upload
+
+![Illustration Example Upload Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/upload.gif)
+
+# Manage Image Library
+
+![Illustration Example Manage Image](https://github.com/YoannBuzenet/react-image-manager/blob/main/doc/images/gallery.gif)
+
 # How it works
 
 This lib allows yo do two things :
