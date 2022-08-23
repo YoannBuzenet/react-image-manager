@@ -15,7 +15,7 @@ const config = {
     globalObject: "this",
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".tsx"],
     fallback: {
       crypto: require.resolve("crypto-browserify"),
       stream: require.resolve("stream-browserify"),
@@ -27,14 +27,9 @@ const config = {
   },
   module: {
     rules: [
-      //   {
-      //     use: "react-hot-loader/webpack",
-      //     test: /\.js$|jsx/,
-      //     exclude: dir_node_modules,
-      //   },
       {
         use: "babel-loader",
-        test: /\.js|\.jsx$/,
+        test: /\.js|\.jsx|\.tsx$/,
         exclude: dir_node_modules,
       },
     ],
