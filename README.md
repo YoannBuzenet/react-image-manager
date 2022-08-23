@@ -87,6 +87,7 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 
 TO DO
 
+- Search how to make the props displayed on vscode thanks to ts
 - Add types
 - Allow better override of CSS and css-in-js
 - We can zoom and rotate the image in uploader

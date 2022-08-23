@@ -86,7 +86,6 @@ const Gallery = () => {
       galleryImageWithoutDuplicate,
       selectedImages
     );
-    console.log("yep ?", arrayOfImagesSelected);
     onSelectImages(arrayOfImagesSelected);
   };
 
