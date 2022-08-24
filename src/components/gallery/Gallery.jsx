@@ -42,10 +42,12 @@ const Gallery = () => {
   const [galleryImagesAfterSearchFilter, setGalleryImagesAfterSearchFilter] =
     useState(galleryImageWithoutDuplicate);
 
+  const [selectedHashes, setSelectedHashes] = useState([]);
+
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + numberOfImagesDisplayed;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+
     setCurrentItems(
       galleryImagesAfterSearchFilter.slice(itemOffset, endOffset)
     );
@@ -66,20 +68,19 @@ const Gallery = () => {
   };
 
   const handleSetSelectedImages = (hash) => {
-    console.log("hash reçu", hash);
     if (canSelectSeveralImages) {
-      if (selectedImages.includes(hash)) {
-        const indexString = selectedImages.indexOf(hash);
-        const newArray = selectedImages.splice(indexString, 1);
-        setSelectedImages(newArray);
+      if (selectedHashes.includes(hash)) {
+        const indexString = selectedHashes.indexOf(hash);
+        const newArray = selectedHashes.splice(indexString, 1);
+        setSelectedHashes(newArray);
       } else {
-        setSelectedImages([...selectedImages, hash]);
+        setSelectedHashes([...selectedHashes, hash]);
       }
     } else {
-      if (selectedImages.includes(hash)) {
-        setSelectedImages([]);
+      if (selectedHashes.includes(hash)) {
+        setSelectedHashes([]);
       } else {
-        setSelectedImages([hash]);
+        setSelectedHashes([hash]);
       }
     }
   };
@@ -87,8 +88,9 @@ const Gallery = () => {
   const handleSelectImages = () => {
     const arrayOfImagesSelected = getAllInfosFromImageHash(
       galleryImageWithoutDuplicate,
-      selectedImages
+      selectedHashes
     );
+
     setIsDisplayedImageManager(false);
     setSelectedImages(arrayOfImagesSelected);
 
@@ -97,10 +99,6 @@ const Gallery = () => {
 
   // CSS-in-js
   const classes = useCustomizedStyle()();
-
-  // console.log("selectedImages", selectedImages);
-
-  console.log("pageCount", pageCount);
 
   // Search by name or url
   const [search, setSearch] = useState("");
@@ -148,7 +146,7 @@ const Gallery = () => {
                 image={image}
                 id={image.src}
                 key={image.src}
-                selectedImages={selectedImages}
+                selectedImages={selectedHashes}
                 setSelectedImages={handleSetSelectedImages}
               />
             );
@@ -161,7 +159,7 @@ const Gallery = () => {
                 image={image}
                 key={image}
                 id={image}
-                selectedImages={selectedImages}
+                selectedImages={selectedHashes}
                 setSelectedImages={handleSetSelectedImages}
               />
             );
@@ -183,8 +181,8 @@ const Gallery = () => {
         <div className={classes.validationButtonContainer}>
           <button
             className="customFileInput"
-            onClick={(e) => handleSelectImages(e, selectedImages)}
-            disabled={selectedImages.length === 0}
+            onClick={(e) => handleSelectImages(e, selectedHashes)}
+            disabled={selectedHashes.length === 0}
           >
             Valider
           </button>
