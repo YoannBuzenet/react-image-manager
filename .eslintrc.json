@@ -1,0 +1,21 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": "next/core-web-vitals",
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "no-undef": "error"
+  },
+  "globals": {
+    "require": "readonly",
+    "module": "readonly",
+    "process": "readonly",
+    "console": "readonly",
+    "__dirname": "readonly",
+    "setTimeout": "readonly"
+  }
+}

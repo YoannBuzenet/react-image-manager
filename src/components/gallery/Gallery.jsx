@@ -90,7 +90,8 @@ const Gallery = () => {
       selectedImages
     );
     setIsDisplayedImageManager(false);
-    setImagesSelected(arrayOfImagesSelected);
+    setSelectedImages(arrayOfImagesSelected);
+
     onSelectImages(arrayOfImagesSelected);
   };
 
