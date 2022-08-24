@@ -6,15 +6,15 @@ export function useImageManager() {
   const {
     isDisplayedImageManager,
     setIsDisplayedImageManager,
-    imagesSelected,
-    setImagesSelected,
+    selectedImages,
+    setSelectedImages,
   } = useContext(ImageManagerContext);
 
   return {
     isDisplayedImageManager,
     setIsDisplayedImageManager,
-    imagesSelected,
-    setImagesSelected,
+    selectedImages,
+    setSelectedImages,
   };
 }
 
