@@ -70,11 +70,11 @@ export const ImageManagerContainer = ({
       galleryImages,
       canSelectSeveralImages,
       onSelectImages,
+      selectedImages,
+      setSelectedImages,
     },
     isDisplayedImageManager,
     setIsDisplayedImageManager,
-    selectedImages,
-    setSelectedImages,
   };
 
   return (

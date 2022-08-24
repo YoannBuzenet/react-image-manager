@@ -34,9 +34,9 @@ export default React.createContext({
     canSelectSeveralImages: false,
     onSelectImages: () =>
       console.error("No callback defined to use selected images."),
+    selectedImages: [],
+    setSelectedImages: (value) => {},
   },
   isDisplayedImageManager: false,
   setIsDisplayedImageManager: (value) => {},
-  selectedImages: [],
-  setSelectedImages: (value) => {},
 });

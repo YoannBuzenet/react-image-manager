@@ -6,9 +6,10 @@ export function useImageManager() {
   const {
     isDisplayedImageManager,
     setIsDisplayedImageManager,
-    selectedImages,
-    setSelectedImages,
+    galleryProperties,
   } = useContext(ImageManagerContext);
+
+  const { selectedImages, setSelectedImages } = galleryProperties;
 
   return {
     isDisplayedImageManager,
