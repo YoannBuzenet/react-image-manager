@@ -14,8 +14,13 @@ import ReactPaginate from "react-paginate";
 const Gallery = () => {
   const { galleryProperties, setIsDisplayedImageManager } =
     useContext(ImageManagerContext);
-  const { galleryImages, canSelectSeveralImages, onSelectImages } =
-    galleryProperties;
+  const {
+    galleryImages,
+    canSelectSeveralImages,
+    onSelectImages,
+    selectedImages,
+    setSelectedImages,
+  } = galleryProperties;
 
   // We compute the number of images we want to displaye, following screen size.
   const { width } = useWindowDimensions();
@@ -60,9 +65,6 @@ const Gallery = () => {
     setItemOffset(newOffset);
   };
 
-  // Selection
-  const [selectedImages, setSelectedImages] = useState([]);
-
   const handleSetSelectedImages = (hash) => {
     console.log("hash reçu", hash);
     if (canSelectSeveralImages) {
@@ -88,6 +90,7 @@ const Gallery = () => {
       selectedImages
     );
     setIsDisplayedImageManager(false);
+    setImagesSelected(arrayOfImagesSelected);
     onSelectImages(arrayOfImagesSelected);
   };
 

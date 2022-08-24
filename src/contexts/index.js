@@ -37,4 +37,6 @@ export default React.createContext({
   },
   isDisplayedImageManager: false,
   setIsDisplayedImageManager: (value) => {},
+  selectedImages: [],
+  setSelectedImages: (value) => {},
 });

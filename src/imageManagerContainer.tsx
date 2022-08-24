@@ -35,6 +35,7 @@ export const ImageManagerContainer = ({
   enabledModes = ["upload", "gallery"],
 }) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
+  const [selectedImages, setSelectedImages] = useState([]);
 
   const context = {
     enabledModes,
@@ -72,6 +73,8 @@ export const ImageManagerContainer = ({
     },
     isDisplayedImageManager,
     setIsDisplayedImageManager,
+    selectedImages,
+    setSelectedImages,
   };
 
   return (

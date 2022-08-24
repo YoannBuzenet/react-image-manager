@@ -3,10 +3,19 @@ import ImageManagerContext from "../contexts/index";
 import { useState, useEffect } from "react";
 
 export function useImageManager() {
-  const { isDisplayedImageManager, setIsDisplayedImageManager } =
-    useContext(ImageManagerContext);
+  const {
+    isDisplayedImageManager,
+    setIsDisplayedImageManager,
+    imagesSelected,
+    setImagesSelected,
+  } = useContext(ImageManagerContext);
 
-  return { isDisplayedImageManager, setIsDisplayedImageManager };
+  return {
+    isDisplayedImageManager,
+    setIsDisplayedImageManager,
+    imagesSelected,
+    setImagesSelected,
+  };
 }
 
 function getWindowDimensions() {
