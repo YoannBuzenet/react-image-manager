@@ -12,7 +12,8 @@ import Card from "./Card";
 import ReactPaginate from "react-paginate";
 
 const Gallery = () => {
-  const { galleryProperties } = useContext(ImageManagerContext);
+  const { galleryProperties, setIsDisplayedImageManager } =
+    useContext(ImageManagerContext);
   const { galleryImages, canSelectSeveralImages, onSelectImages } =
     galleryProperties;
 
@@ -86,6 +87,7 @@ const Gallery = () => {
       galleryImageWithoutDuplicate,
       selectedImages
     );
+    setIsDisplayedImageManager(false);
     onSelectImages(arrayOfImagesSelected);
   };
 

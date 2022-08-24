@@ -87,6 +87,7 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 
 TO DO
 
+- Takes other props that could be added by user and add them to the images (if not string) #Should already be the case
 - Search how to make the props displayed on vscode thanks to ts
 - Add types
 - Allow better override of CSS and css-in-js
