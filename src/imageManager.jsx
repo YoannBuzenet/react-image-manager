@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Gallery from "./components/gallery/Gallery";
 import ImageUploader from "./components/ImageUploader";
 import ImageManagerContext from "./contexts/index";
@@ -6,8 +6,23 @@ import { useCustomizedStyle } from "./style/react-jss-customization";
 
 // Lui va recevoir masse props overwritable
 const ImageManager = () => {
-  const { isDisplayedImageManager, setIsDisplayedImageManager, enabledModes } =
-    useContext(ImageManagerContext);
+  const {
+    isDisplayedImageManager,
+    setIsDisplayedImageManager,
+    enabledModes,
+    galleryProperties,
+  } = useContext(ImageManagerContext);
+
+  const { selectedImages, setSelectedImages } = galleryProperties;
+
+  useEffect(() => {
+    // We reset context of selected images when component is appearing.
+    // This way, if component is open twice in a row, it doesn't keep track on ancient selection.
+    if (isDisplayedImageManager) {
+      setSelectedImages([]);
+      console.log("Cleaning context of selectedImages");
+    }
+  }, [isDisplayedImageManager]);
 
   const bootMode = enabledModes.includes("upload") ? "upload" : "gallery";
 
@@ -82,8 +97,6 @@ const ImageManager = () => {
 };
 
 export default ImageManager;
-// Comment intégrer des SVG ou Image ou CSS pour un module qui doit marcher sans webpack ?
-// Fenetre de base avec selecteur Upload / Gallerie
 //
 //
 //
@@ -102,4 +115,4 @@ export default ImageManager;
 //
 //
 // Possibilité d'override les strings affichés dans la librairie
-// Mettre un message d'erreur custom si le contexte n'est pas détecté
+// Mettre un message d'erreur custom si le contexte de la lib n'est pas détecté
