@@ -17,7 +17,7 @@ const ImageUploader = () => {
   const defaultStateFields = uploadProperties.imageFields.reduce(
     (total, current) => {
       total[current.name] = {
-        value: current.name,
+        value: "",
         isRequired: current?.isRequired || false,
       };
       return total;
@@ -67,7 +67,7 @@ const ImageUploader = () => {
   const isUploadButtonDisabled = () => {
     let isDisabled = false;
     for (const field in fields) {
-      if (!fields[field] && fields[field].isRequired) {
+      if (!fields[field].value && fields[field].isRequired) {
         isDisabled = true;
       }
     }

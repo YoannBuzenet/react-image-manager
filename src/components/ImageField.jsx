@@ -7,6 +7,7 @@ const ImageField = ({ name, stateFields, handleChange, isRequired }) => {
       <div>
         <label htmlFor={name} className={classes.imageFieldLabel}>
           {name}
+          {isRequired && " *"}
         </label>
       </div>
       <input
