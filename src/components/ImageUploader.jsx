@@ -16,7 +16,10 @@ const ImageUploader = () => {
 
   const defaultStateFields = uploadProperties.imageFields.reduce(
     (total, current) => {
-      total[current] = "";
+      total[current.name] = {
+        value: current.name,
+        isRequired: current?.isRequired || false,
+      };
       return total;
     },
     {}
@@ -58,13 +61,13 @@ const ImageUploader = () => {
   };
 
   const handleChangeFields = (e, key) => {
-    setFields({ ...fields, [key]: e.target.value });
+    setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
   };
 
   const isUploadButtonDisabled = () => {
     let isDisabled = false;
     for (const field in fields) {
-      if (!fields[field]) {
+      if (!fields[field] && fields[field].isRequired) {
         isDisabled = true;
       }
     }
@@ -140,10 +143,11 @@ const ImageUploader = () => {
       >
         <div className={classes.fieldContainer}>
           {documentUploaded &&
-            uploadProperties.imageFields.map((name, index) => (
+            uploadProperties.imageFields.map((objectField, index) => (
               <ImageField
                 handleChange={handleChangeFields}
-                name={name}
+                name={objectField.name}
+                isRequired={objectField.isRequired}
                 key={index}
                 stateFields={fields}
               />

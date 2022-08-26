@@ -1,6 +1,6 @@
 import { useCustomizedStyle } from "../style/imageField.js";
 
-const ImageField = ({ name, stateFields, handleChange }) => {
+const ImageField = ({ name, stateFields, handleChange, isRequired }) => {
   const classes = useCustomizedStyle()();
   return (
     <div className={classes.imageFieldContainer}>
@@ -11,7 +11,7 @@ const ImageField = ({ name, stateFields, handleChange }) => {
       </div>
       <input
         id={name}
-        value={stateFields?.[name]}
+        value={stateFields?.[name].value}
         onChange={(e) => handleChange(e, name)}
         className={classes.imageFieldInput}
       />
