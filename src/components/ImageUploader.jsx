@@ -97,13 +97,15 @@ const ImageUploader = () => {
 
     // Adding all the keys defined by the dev
     for (const key in fields) {
-      formData.append(key, fields[key]);
+      formData.append(key, fields[key].value);
     }
     formData.append("x", crop?.x);
     formData.append("y", crop?.y);
     formData.append("width", crop?.width);
     formData.append("height", crop?.height);
     formData.append("image", documentUploadedRaw, "wtf.png");
+
+    //TODO map all props and check there are no JS objects ?
 
     try {
       const resp = await axios.post(uploadProperties.urlUpload, formData, {
