@@ -35,7 +35,12 @@ export const ImageManagerContainer = ({
 }) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
-  const [onValidationCallBack, setOnValidationCallBack] = useState(() => {});
+  const [onValidationCallBack, setOnValidationCallBack] = useState(null);
+
+  const handleSetOnValidationCallBack = (functionToSetAsCallback) => {
+    // console.log("Setter has been called with param:", functionToSetAsCallback);
+    setOnValidationCallBack(() => functionToSetAsCallback);
+  };
 
   const context = {
     enabledModes,
@@ -73,7 +78,7 @@ export const ImageManagerContainer = ({
       selectedImages,
       setSelectedImages,
       onValidationCallBack,
-      setOnValidationCallBack,
+      setOnValidationCallBack: handleSetOnValidationCallBack,
     },
     isDisplayedImageManager,
     setIsDisplayedImageManager,

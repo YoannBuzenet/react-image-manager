@@ -18,7 +18,6 @@ const Gallery = () => {
     galleryImages,
     canSelectSeveralImages,
     globalOnSelectImages,
-    selectedImages,
     setSelectedImages,
     onValidationCallBack,
   } = galleryProperties;
@@ -86,7 +85,7 @@ const Gallery = () => {
     }
   };
 
-  const handleSelectImages = () => {
+  const handleSelectImages = (e, selectedHashes) => {
     const arrayOfImagesSelected = getAllInfosFromImageHash(
       galleryImageWithoutDuplicate,
       selectedHashes
@@ -94,7 +93,9 @@ const Gallery = () => {
 
     setIsDisplayedImageManager(false);
     setSelectedImages(arrayOfImagesSelected);
-    onValidationCallBack(arrayOfImagesSelected);
+    if (onValidationCallBack) {
+      onValidationCallBack(arrayOfImagesSelected);
+    }
     globalOnSelectImages(arrayOfImagesSelected);
   };
 
@@ -124,9 +125,7 @@ const Gallery = () => {
       ) {
         return image;
       }
-      console.log("Image filtrée", image);
     });
-    console.log("filteredGallery", filteredGallery);
     setGalleryImagesAfterSearchFilter(filteredGallery);
   };
 
