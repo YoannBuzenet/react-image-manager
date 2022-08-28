@@ -1,9 +1,18 @@
-import { useEffect } from "react";
 import { useCustomizedStyle } from "../../style/card";
-import crypto from "crypto";
 
 const CardImageObject = ({ image, isSelected }) => {
   const classes = useCustomizedStyle()();
+
+  let imageNameClean = image.name;
+  try {
+    const imageNameWithoutFormat = image.name.split(".")[0];
+    imageNameClean = imageNameWithoutFormat;
+  } catch (e) {
+    console.log(
+      `Couldn't remove the format from the name for image :`,
+      image.name
+    );
+  }
 
   return (
     <div
@@ -11,9 +20,9 @@ const CardImageObject = ({ image, isSelected }) => {
         isSelected ? classes.imageContainerSelected : classes.imageContainer
       }
     >
-      <img src={image.src} alt={image.name} className={classes.image} />
+      <img src={image.src} alt={imageNameClean} className={classes.image} />
       <div className={classes.infoContainer}>
-        <p>{image.name}</p>
+        <p>{imageNameClean}</p>
         {image.credits && (
           <p className={`${classes.lightText} ${classes.infoText}`}>
             <span>&nbsp;|&nbsp;</span>
