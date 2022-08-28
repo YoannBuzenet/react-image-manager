@@ -52,7 +52,8 @@ This lib allows yo do two things :
   };
   ```
 - `canSelectSeveralImages` : boolean to allow or not to select several image in the gallery.
-- `onSelectImages` : Callback method that will be called when user validates images selection from gallery.
+- `globalOnSelectImages` : Callback method that will be called each time when user validates images selection from gallery.
+- To setup a setter for a particular component, pass the setter in `setOnValidationCallBack` that you get from `useImageManager` hook. It will receive the array of selected images.
 - `urlUpload` : URL where image to upload will be sent.
 - `axiosHeadersUpload` : Axios headers you would like to pass when uploading, for auth purpose for example.
 - `onSuccessUpload` : Callback called when upload was successful. Could be a notification.

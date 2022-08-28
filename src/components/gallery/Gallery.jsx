@@ -17,9 +17,10 @@ const Gallery = () => {
   const {
     galleryImages,
     canSelectSeveralImages,
-    onSelectImages,
+    globalOnSelectImages,
     selectedImages,
     setSelectedImages,
+    onValidationCallBack,
   } = galleryProperties;
 
   // We compute the number of images we want to displaye, following screen size.
@@ -93,8 +94,8 @@ const Gallery = () => {
 
     setIsDisplayedImageManager(false);
     setSelectedImages(arrayOfImagesSelected);
-
-    onSelectImages(arrayOfImagesSelected);
+    onValidationCallBack(arrayOfImagesSelected);
+    globalOnSelectImages(arrayOfImagesSelected);
   };
 
   // CSS-in-js

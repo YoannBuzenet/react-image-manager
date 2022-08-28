@@ -32,10 +32,11 @@ export default React.createContext({
   galleryProperties: {
     galleryImages: [],
     canSelectSeveralImages: false,
-    onSelectImages: () =>
-      console.error("No callback defined to use selected images."),
+    globalOnSelectImages: () => {},
     selectedImages: [],
     setSelectedImages: (value) => {},
+    onValidationCallBack: () => {},
+    setOnValidationCallBack: () => {},
   },
   isDisplayedImageManager: false,
   setIsDisplayedImageManager: (value) => {},

@@ -9,13 +9,15 @@ export function useImageManager() {
     galleryProperties,
   } = useContext(ImageManagerContext);
 
-  const { selectedImages, setSelectedImages } = galleryProperties;
+  const { selectedImages, setSelectedImages, setOnValidationCallBack } =
+    galleryProperties;
 
   return {
     isDisplayedImageManager,
     setIsDisplayedImageManager,
     selectedImages,
     setSelectedImages,
+    setOnValidationCallBack,
   };
 }
 

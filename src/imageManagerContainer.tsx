@@ -30,12 +30,12 @@ export const ImageManagerContainer = ({
   imageFields = ["name"],
   galleryImages = [],
   canSelectSeveralImages = false,
-  onSelectImages = () =>
-    console.error("No callback defined to use selected images."),
+  globalOnSelectImages = () => {},
   enabledModes = ["upload", "gallery"],
 }) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
+  const [onValidationCallBack, setOnValidationCallBack] = useState(() => {});
 
   const context = {
     enabledModes,
@@ -69,9 +69,11 @@ export const ImageManagerContainer = ({
     galleryProperties: {
       galleryImages,
       canSelectSeveralImages,
-      onSelectImages,
+      globalOnSelectImages,
       selectedImages,
       setSelectedImages,
+      onValidationCallBack,
+      setOnValidationCallBack,
     },
     isDisplayedImageManager,
     setIsDisplayedImageManager,
