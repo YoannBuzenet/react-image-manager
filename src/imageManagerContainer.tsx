@@ -30,6 +30,8 @@ export const ImageManagerContainer = ({
   imageFields = ["name"],
   galleryImages = [],
   canSelectSeveralImages = false,
+  withTags = false,
+  tagList = [],
   globalOnSelectImages = () => {},
   enabledModes = ["upload", "gallery"],
 }) => {
@@ -44,6 +46,8 @@ export const ImageManagerContainer = ({
 
   const context = {
     enabledModes,
+    withTags,
+    tagList,
     cropProperties: {
       cropAspectRatio,
       cropMinWidth,

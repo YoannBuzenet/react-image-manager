@@ -14,6 +14,7 @@ const ImageUploader = () => {
 
   const { uploadProperties } = useContext(ImageManagerContext);
 
+  // Settings up fields for the image based on received props
   const defaultStateFields = uploadProperties.imageFields.reduce(
     (total, current) => {
       total[current.name] = {

@@ -1,0 +1,4 @@
+- Add tag list in search within the gallery
+- Find/create component to search and create tags
+- Add data to the post request to create the image
+- back-end : upsert tags and add them to the image

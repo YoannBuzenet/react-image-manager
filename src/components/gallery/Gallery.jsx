@@ -16,6 +16,8 @@ const Gallery = () => {
     useContext(ImageManagerContext);
   const {
     galleryImages,
+    withTags,
+    tagList,
     canSelectSeveralImages,
     globalOnSelectImages,
     setSelectedImages,
@@ -43,6 +45,12 @@ const Gallery = () => {
     useState(galleryImageWithoutDuplicate);
 
   const [selectedHashes, setSelectedHashes] = useState([]);
+
+  // CSS-in-js
+  const classes = useCustomizedStyle()();
+
+  // Search by name or url
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     // Fetch items from another resources.
@@ -98,12 +106,6 @@ const Gallery = () => {
     }
     globalOnSelectImages(arrayOfImagesSelected);
   };
-
-  // CSS-in-js
-  const classes = useCustomizedStyle()();
-
-  // Search by name or url
-  const [search, setSearch] = useState("");
 
   const handleSearch = (e) => {
     const currentSearch = e.target.value.toLowerCase();
