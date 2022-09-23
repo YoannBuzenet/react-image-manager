@@ -49,9 +49,10 @@ const Gallery = () => {
   const [selectedTags, setSelectedTags] = useState([]);
 
   const handleSelectTags = (e, value) => {
-    console.log("on reçoit quoi ?", value);
     setSelectedTags(value);
   };
+
+  console.log("les images actuelles", galleryImagesAfterSearchFilter);
 
   // CSS-in-js
   const classes = useCustomizedStyle()();
@@ -114,29 +115,58 @@ const Gallery = () => {
     globalOnSelectImages(arrayOfImagesSelected);
   };
 
-  const handleSearch = (e) => {
+  const handleSearchKeyboard = (e) => {
     const currentSearch = e.target.value.toLowerCase();
 
     // Putting pagination to 0
     setItemOffset(0);
 
     setSearch(currentSearch);
-    const filteredGallery = galleryImageWithoutDuplicate.filter((image) => {
-      if (!search) {
-        return image;
-      }
-
-      if (image.name && image.name.toLowerCase().includes(currentSearch)) {
-        return image;
-      } else if (
-        !image.hasOwnProperty("name") &&
-        image.toLowerCase().includes(currentSearch)
-      ) {
-        return image;
-      }
-    });
-    setGalleryImagesAfterSearchFilter(filteredGallery);
   };
+
+  useEffect(() => {
+    // Filtering by search
+    const filteredGallerySearch = galleryImageWithoutDuplicate.filter(
+      (image) => {
+        if (!search) {
+          return image;
+        }
+
+        if (image.name && image.name.toLowerCase().includes(search)) {
+          return image;
+        } else if (
+          !image.hasOwnProperty("name") &&
+          image.toLowerCase().includes(search)
+        ) {
+          return image;
+        }
+      }
+    );
+
+    const tagAsObjects = selectedTags.reduce((total, current) => {
+      total[`${current.name}-${current.language}`] = current;
+      return total;
+    }, {});
+
+    let filteredGalleryTags = filteredGallerySearch;
+
+    if (selectedTags.length > 0) {
+      // Filtering by tags
+      filteredGalleryTags = filteredGallerySearch.filter((image) => {
+        const imageTags = image.Tags;
+        let isTagPresent = false;
+        for (let i = 0; i < imageTags.length; i++) {
+          const constructedKey = `${imageTags[i].name}-${imageTags[i].language}`;
+          if (tagAsObjects[constructedKey]) {
+            isTagPresent = true;
+          }
+        }
+        return isTagPresent;
+      });
+    }
+
+    setGalleryImagesAfterSearchFilter(filteredGalleryTags);
+  }, [search, setSelectedTags, selectedTags.length]);
 
   return (
     <div className={classes.galleryContainer}>
@@ -144,7 +174,7 @@ const Gallery = () => {
         <input
           type="text"
           placeholder="Search by name"
-          onChange={handleSearch}
+          onChange={handleSearchKeyboard}
         />
       </div>
       <div className={classes.galleryImageContainer}>
