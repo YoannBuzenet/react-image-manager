@@ -39,6 +39,8 @@ export const ImageManagerContainer = ({
   const [selectedImages, setSelectedImages] = useState([]);
   const [onValidationCallBack, setOnValidationCallBack] = useState(null);
 
+  console.log("Je dev en local");
+
   const handleSetOnValidationCallBack = (functionToSetAsCallback) => {
     // console.log("Setter has been called with param:", functionToSetAsCallback);
     setOnValidationCallBack(() => functionToSetAsCallback);

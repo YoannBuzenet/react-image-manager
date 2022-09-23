@@ -38,7 +38,7 @@ export default React.createContext({
     selectedImages: [],
     setSelectedImages: (value) => {},
     onValidationCallBack: () => {},
-    setOnValidationCallBack: () => {},
+    setOnValidationCallBack: (fn) => {},
   },
   isDisplayedImageManager: false,
   setIsDisplayedImageManager: (value) => {},

@@ -10,14 +10,14 @@ import {
 } from "../../utils";
 import Card from "./Card";
 import ReactPaginate from "react-paginate";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 const Gallery = () => {
-  const { galleryProperties, setIsDisplayedImageManager } =
+  const { galleryProperties, tagList, withTags, setIsDisplayedImageManager } =
     useContext(ImageManagerContext);
   const {
     galleryImages,
-    withTags,
-    tagList,
     canSelectSeveralImages,
     globalOnSelectImages,
     setSelectedImages,
@@ -45,6 +45,13 @@ const Gallery = () => {
     useState(galleryImageWithoutDuplicate);
 
   const [selectedHashes, setSelectedHashes] = useState([]);
+
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const handleSelectTags = (e, value) => {
+    console.log("on reçoit quoi ?", value);
+    setSelectedTags(value);
+  };
 
   // CSS-in-js
   const classes = useCustomizedStyle()();
@@ -141,6 +148,25 @@ const Gallery = () => {
         />
       </div>
       <div className={classes.galleryImageContainer}>
+        <div>
+          <Autocomplete
+            sx={{ width: 350 }}
+            multiple
+            id="tags-standard"
+            options={tagList}
+            getOptionLabel={(option) => option.name}
+            value={selectedTags}
+            onChange={handleSelectTags}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="standard"
+                label="Multiple values"
+                placeholder="Tags"
+              />
+            )}
+          />
+        </div>
         {currentItems.map((image, index) => {
           if (image.name && image.name.toLowerCase().includes(search)) {
             return (

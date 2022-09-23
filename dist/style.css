@@ -35,3 +35,8 @@ button.customFileInput:disabled {
   background-color: grey;
   cursor: not-allowed;
 }
+
+/* Dropdown MUI Component Autocomplete*/
+div[role="presentation"].MuiAutocomplete-popper {
+  z-index: 1000000;
+}
