@@ -28,6 +28,7 @@ export default React.createContext({
     axiosHeadersUpload: {},
     onSuccessUpload: null,
     onFailureupload: null,
+    onFailureuploadImageTooSmall: (minWidth) => {},
     imageFields: ["name"],
     minWidthImageUpload: null,
     customPropsToPass: {},

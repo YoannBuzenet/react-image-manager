@@ -18,6 +18,8 @@ const ImageUploader = () => {
   const { uploadProperties, tagList, withTags } =
     useContext(ImageManagerContext);
 
+  const { onFailureuploadImageTooSmall } = uploadProperties;
+
   // Settings up fields for the image based on received props
   const defaultStateFields = uploadProperties.imageFields.reduce(
     (total, current) => {
@@ -44,10 +46,7 @@ const ImageUploader = () => {
         uploadProperties.minWidthImageUpload &&
         img.width < uploadProperties.minWidthImageUpload
       ) {
-        console.error(
-          `Width of the image is too small. It should be ${uploadProperties.minWidthImageUpload}px at least.`
-        );
-        // TODO : callback failure upload size too small
+        onFailureuploadImageTooSmall(uploadProperties.minWidthImageUpload);
         return;
       } else {
         setDocumentUploadedRaw(file);
