@@ -89,12 +89,8 @@ const ImageUploader = () => {
   const handleSelectTags = (e, values) => {
     let tagsChecked = [];
 
-    console.log("values", values);
-
     if (Array.isArray(values)) {
       for (const value of values) {
-        console.log('typeof value === "string"', typeof value === "string");
-        console.log("value", value);
         // Checking if there are new tags
         if (typeof value === "string") {
           const tagAsObject = {
@@ -135,6 +131,7 @@ const ImageUploader = () => {
     formData.append("width", crop?.width);
     formData.append("height", crop?.height);
     formData.append("image", documentUploadedRaw, "wtf.png");
+    formData.append("tags", JSON.stringify(selectedTags));
 
     //TODO map all props and check there are no JS objects ?
 
