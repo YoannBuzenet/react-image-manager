@@ -24,10 +24,10 @@ export const ImageManagerContainer = ({
   cropCircularCrop,
   urlUpload,
   axiosHeadersUpload,
-  minWidthImageUpload,
   onSuccessUpload,
   onFailureupload,
   onFailureuploadImageTooSmall = (minWidth) => {},
+  minWidthImageUploadInitial = 700,
   imageFields = ["name"],
   galleryImages = [],
   canSelectSeveralImages = false,
@@ -40,8 +40,9 @@ export const ImageManagerContainer = ({
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
   const [onValidationCallBack, setOnValidationCallBack] = useState(null);
-
-  console.log("Je dev en local");
+  const [minWidthImageUpload, setMinWidthImageUpload] = useState(
+    minWidthImageUploadInitial
+  );
 
   const handleSetOnValidationCallBack = (functionToSetAsCallback) => {
     // console.log("Setter has been called with param:", functionToSetAsCallback);
@@ -76,9 +77,11 @@ export const ImageManagerContainer = ({
       axiosHeadersUpload,
       onSuccessUpload,
       onFailureupload,
+      minWidthImageUploadInitial,
       onFailureuploadImageTooSmall,
       imageFields,
       minWidthImageUpload,
+      setMinWidthImageUpload,
       customPropsToPass,
     },
     galleryProperties: {

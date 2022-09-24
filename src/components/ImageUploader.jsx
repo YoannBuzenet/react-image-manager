@@ -18,7 +18,8 @@ const ImageUploader = () => {
   const { uploadProperties, tagList, withTags } =
     useContext(ImageManagerContext);
 
-  const { onFailureuploadImageTooSmall } = uploadProperties;
+  const { onFailureuploadImageTooSmall, minWidthImageUpload } =
+    uploadProperties;
 
   // Settings up fields for the image based on received props
   const defaultStateFields = uploadProperties.imageFields.reduce(

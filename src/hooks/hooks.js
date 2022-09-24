@@ -7,10 +7,12 @@ export function useImageManager() {
     isDisplayedImageManager,
     setIsDisplayedImageManager,
     galleryProperties,
+    uploadProperties,
   } = useContext(ImageManagerContext);
 
   const { selectedImages, setSelectedImages, setOnValidationCallBack } =
     galleryProperties;
+  const { setMinWidthImageUpload, minWidthImageUpload } = uploadProperties;
 
   return {
     isDisplayedImageManager,
@@ -18,6 +20,8 @@ export function useImageManager() {
     selectedImages,
     setSelectedImages,
     setOnValidationCallBack,
+    setMinWidthImageUpload,
+    minWidthImageUpload,
   };
 }
 

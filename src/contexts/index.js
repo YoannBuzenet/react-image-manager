@@ -30,7 +30,9 @@ export default React.createContext({
     onFailureupload: null,
     onFailureuploadImageTooSmall: (minWidth) => {},
     imageFields: ["name"],
+    minWidthImageUploadInitial: null,
     minWidthImageUpload: null,
+    setMinWidthImageUpload: null,
     customPropsToPass: {},
   },
   galleryProperties: {
