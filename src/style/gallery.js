@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 
 //TODO : passer tout le customizable en paramètre de la fonction
 //TODO chaque parametre doit avoir une valeur par default
-export const useCustomizedStyle = () =>
+export const useCustomizedStyle = (withTags) =>
   createUseStyles({
     galleryContainer: {
       display: "flex",
@@ -11,16 +11,28 @@ export const useCustomizedStyle = () =>
     searchGalleryContainer: {
       position: "absolute",
       top: 0,
-      height: "60px",
+      height: "70px",
       right: 0,
       left: 0,
       display: "flex",
       justifyContent: "center",
       "& input": {
-        width: "60%",
+        width: withTags ? "30%" : "60%",
         height: "40px",
         fontSize: "16px",
         paddingLeft: "10px",
+      },
+    },
+    tagContainer: {
+      width: "30%",
+      height: "40px",
+      fontSize: "16px",
+      paddingLeft: "10px",
+      "& span": {
+        fontSize: 14,
+      },
+      "& .MuiInputBase-root": {
+        marginTop: 0,
       },
     },
     galleryImageContainer: {
@@ -29,7 +41,7 @@ export const useCustomizedStyle = () =>
       flexWrap: "wrap",
       overflowY: "scroll",
       position: "absolute",
-      top: "60px",
+      top: "70px",
       left: 0,
       right: 0,
       bottom: "15%",

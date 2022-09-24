@@ -52,10 +52,8 @@ const Gallery = () => {
     setSelectedTags(value);
   };
 
-  console.log("les images actuelles", galleryImagesAfterSearchFilter);
-
   // CSS-in-js
-  const classes = useCustomizedStyle()();
+  const classes = useCustomizedStyle(withTags)();
 
   // Search by name or url
   const [search, setSearch] = useState("");
@@ -176,27 +174,28 @@ const Gallery = () => {
           placeholder="Search by name"
           onChange={handleSearchKeyboard}
         />
+        {withTags && (
+          <div className={classes.tagContainer}>
+            <Autocomplete
+              multiple
+              id="tags-standard"
+              options={tagList}
+              getOptionLabel={(option) => option.name}
+              value={selectedTags}
+              onChange={handleSelectTags}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  variant="standard"
+                  label="Multiple values"
+                  placeholder="Tags"
+                />
+              )}
+            />
+          </div>
+        )}
       </div>
       <div className={classes.galleryImageContainer}>
-        <div>
-          <Autocomplete
-            sx={{ width: 350 }}
-            multiple
-            id="tags-standard"
-            options={tagList}
-            getOptionLabel={(option) => option.name}
-            value={selectedTags}
-            onChange={handleSelectTags}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="standard"
-                label="Multiple values"
-                placeholder="Tags"
-              />
-            )}
-          />
-        </div>
         {currentItems.map((image, index) => {
           if (image.name && image.name.toLowerCase().includes(search)) {
             return (
