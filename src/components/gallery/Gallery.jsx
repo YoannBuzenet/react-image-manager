@@ -187,7 +187,7 @@ const Gallery = () => {
                 <TextField
                   {...params}
                   variant="standard"
-                  label="Multiple values"
+                  label="Select Tags"
                   placeholder="Tags"
                 />
               )}

@@ -4,6 +4,8 @@ import CropImage from "./CropImage.jsx";
 import ImageManagerContext from "../contexts/index";
 import axios from "axios";
 import ImageField from "./ImageField.jsx";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 const ImageUploader = () => {
   const classes = useCustomizedStyle()();
@@ -11,8 +13,10 @@ const ImageUploader = () => {
   const [documentUploadedRaw, setDocumentUploadedRaw] = useState(null);
   const [crop, setCrop] = useState();
   const [adjustedHeightImage, setAdjustedHeightImage] = useState(0);
+  const [selectedTags, setSelectedTags] = useState([]);
 
-  const { uploadProperties } = useContext(ImageManagerContext);
+  const { uploadProperties, tagList, withTags } =
+    useContext(ImageManagerContext);
 
   // Settings up fields for the image based on received props
   const defaultStateFields = uploadProperties.imageFields.reduce(
@@ -82,6 +86,32 @@ const ImageUploader = () => {
     return isDisabled;
   };
 
+  const handleSelectTags = (e, values) => {
+    let tagsChecked = [];
+
+    console.log("values", values);
+
+    if (Array.isArray(values)) {
+      for (const value of values) {
+        console.log('typeof value === "string"', typeof value === "string");
+        console.log("value", value);
+        // Checking if there are new tags
+        if (typeof value === "string") {
+          const tagAsObject = {
+            name: value,
+            language: uploadProperties?.customPropsToPass?.language,
+            isNewTag: true,
+          };
+          tagsChecked = [...tagsChecked, tagAsObject];
+        } else {
+          tagsChecked = [...tagsChecked, value];
+        }
+      }
+    }
+
+    setSelectedTags(tagsChecked);
+  };
+
   const handleUpload = async (event) => {
     // crop format example
     // height: 173.25559997558594
@@ -144,18 +174,42 @@ const ImageUploader = () => {
       <div
         className={documentUploaded ? classes.uploaded : classes.nonUploaded}
       >
-        <div className={classes.fieldContainer}>
-          {documentUploaded &&
-            uploadProperties.imageFields.map((objectField, index) => (
-              <ImageField
-                handleChange={handleChangeFields}
-                name={objectField.name}
-                isRequired={objectField.isRequired}
-                key={index}
-                stateFields={fields}
-              />
-            ))}
-        </div>
+        {documentUploaded && (
+          <div>
+            <div className={classes.fieldContainer}>
+              {uploadProperties.imageFields.map((objectField, index) => (
+                <ImageField
+                  handleChange={handleChangeFields}
+                  name={objectField.name}
+                  isRequired={objectField.isRequired}
+                  key={index}
+                  stateFields={fields}
+                />
+              ))}
+            </div>
+            {withTags && (
+              <div className={classes.tagContainer}>
+                <Autocomplete
+                  multiple
+                  id="tags-standard"
+                  options={tagList}
+                  getOptionLabel={(option) => option.name}
+                  value={selectedTags}
+                  onChange={handleSelectTags}
+                  freeSolo
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      variant="standard"
+                      label="Select Tags"
+                      placeholder="Tags"
+                    />
+                  )}
+                />
+              </div>
+            )}
+          </div>
+        )}
         <div className={classes.allInputs}>
           <div className={classes.inputContainer}>
             <label htmlFor="uploadButton" className="customFileInput">

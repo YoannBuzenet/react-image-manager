@@ -34,6 +34,7 @@ export const ImageManagerContainer = ({
   tagList = [],
   globalOnSelectImages = () => {},
   enabledModes = ["upload", "gallery"],
+  customPropsToPass = {},
 }) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
@@ -76,6 +77,7 @@ export const ImageManagerContainer = ({
       onFailureupload,
       imageFields,
       minWidthImageUpload,
+      customPropsToPass,
     },
     galleryProperties: {
       galleryImages,

@@ -27,4 +27,10 @@ export const useCustomizedStyle = () =>
     cropContainer: {
       marginTop: "40px",
     },
+    tagContainer: {
+      "& > div": {
+        width: "80%",
+        margin: "auto",
+      },
+    },
   });
