@@ -6,6 +6,7 @@ import axios from "axios";
 import ImageField from "./ImageField.jsx";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import { WIDTH_IMAGE } from "../config/consts";
 
 const ImageUploader = () => {
   const classes = useCustomizedStyle()();
@@ -13,6 +14,7 @@ const ImageUploader = () => {
   const [documentUploadedRaw, setDocumentUploadedRaw] = useState(null);
   const [crop, setCrop] = useState();
   const [adjustedHeightImage, setAdjustedHeightImage] = useState(0);
+  const [ratioDimensionsImage, setRatioDimensionsImage] = useState(null);
   const [selectedTags, setSelectedTags] = useState([]);
   const [statImage, setStateImage] = useState({
     width: null,
@@ -63,8 +65,9 @@ const ImageUploader = () => {
           height,
         });
 
-        const adjustedHeight = Math.round((680 * height) / width);
+        const adjustedHeight = Math.round((WIDTH_IMAGE * height) / width);
         setAdjustedHeightImage(adjustedHeight);
+        setRatioDimensionsImage(width / WIDTH_IMAGE);
 
         URL.revokeObjectURL(img.src);
       }
@@ -134,10 +137,10 @@ const ImageUploader = () => {
     for (const key in fields) {
       formData.append(key, fields[key].value);
     }
-    formData.append("x", crop?.x);
-    formData.append("y", crop?.y);
-    formData.append("width", crop?.width);
-    formData.append("height", crop?.height);
+    formData.append("x", crop?.x * ratioDimensionsImage);
+    formData.append("y", crop?.y * ratioDimensionsImage);
+    formData.append("width", crop?.width * ratioDimensionsImage);
+    formData.append("height", crop?.height * ratioDimensionsImage);
     formData.append("image", documentUploadedRaw, "wtf.png");
     formData.append("tags", JSON.stringify(selectedTags));
 
@@ -179,8 +182,18 @@ const ImageUploader = () => {
             {statImage.height && <p>Height: {statImage.height} px</p>}
           </div>
           <div className={classes.dataImage}>
-            {crop?.width && <p>Croppped Width: {crop?.width} px</p>}
-            {crop?.height && <p>Cropped Height: {crop?.height} px</p>}
+            {crop?.width && (
+              <p>
+                Croppped Width: {parseInt(crop?.width * ratioDimensionsImage)}{" "}
+                px
+              </p>
+            )}
+            {crop?.height && (
+              <p>
+                Cropped Height: {parseInt(crop?.height * ratioDimensionsImage)}{" "}
+                px
+              </p>
+            )}
           </div>
         </div>
       )}
