@@ -43,6 +43,7 @@ export const ImageManagerContainer = ({
   const [minWidthImageUpload, setMinWidthImageUpload] = useState(
     minWidthImageUploadInitial
   );
+  const [newCropAspectRatio, setNewCropAspectRatio] = useState(cropAspectRatio);
 
   const handleSetOnValidationCallBack = (functionToSetAsCallback) => {
     // console.log("Setter has been called with param:", functionToSetAsCallback);
@@ -55,6 +56,8 @@ export const ImageManagerContainer = ({
     tagList,
     cropProperties: {
       cropAspectRatio,
+      newCropAspectRatio,
+      setNewCropAspectRatio,
       cropMinWidth,
       cropMinHeight,
       cropMaxWidth,

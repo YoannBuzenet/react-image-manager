@@ -5,6 +5,7 @@ import ImageManagerContext from "../contexts/index";
 
 function CropImage({ src, crop, setCrop, adjustedHeightImage }) {
   const { cropProperties } = useContext(ImageManagerContext);
+  const { newCropAspectRatio } = cropProperties;
 
   // crop format example
   // height: 173.25559997558594
@@ -37,7 +38,7 @@ function CropImage({ src, crop, setCrop, adjustedHeightImage }) {
           };
         })
       }
-      aspect={cropProperties.cropAspectRatio}
+      aspect={newCropAspectRatio}
       minWidth={cropProperties.cropMinWidth}
       minHeight={cropProperties.cropMinHeight}
       maxWidth={cropProperties.cropMaxWidth}

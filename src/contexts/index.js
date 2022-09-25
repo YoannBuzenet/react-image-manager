@@ -6,6 +6,8 @@ export default React.createContext({
   tagList: [],
   cropProperties: {
     cropAspectRatio: null,
+    newCropAspectRatio: null,
+    setNewCropAspectRatio: null,
     cropMinWidth: null,
     cropMinHeight: null,
     cropMaxWidth: null,

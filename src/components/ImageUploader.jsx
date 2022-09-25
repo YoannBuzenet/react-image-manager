@@ -15,7 +15,7 @@ const ImageUploader = () => {
   const [adjustedHeightImage, setAdjustedHeightImage] = useState(0);
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const { uploadProperties, tagList, withTags } =
+  const { uploadProperties, tagList, withTags, cropProperties } =
     useContext(ImageManagerContext);
 
   const { onFailureuploadImageTooSmall, minWidthImageUpload } =

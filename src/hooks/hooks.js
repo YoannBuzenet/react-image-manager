@@ -8,11 +8,13 @@ export function useImageManager() {
     setIsDisplayedImageManager,
     galleryProperties,
     uploadProperties,
+    cropProperties,
   } = useContext(ImageManagerContext);
 
   const { selectedImages, setSelectedImages, setOnValidationCallBack } =
     galleryProperties;
   const { setMinWidthImageUpload, minWidthImageUpload } = uploadProperties;
+  const { setNewCropAspectRatio, newCropAspectRatio } = cropProperties;
 
   return {
     isDisplayedImageManager,
@@ -22,6 +24,8 @@ export function useImageManager() {
     setOnValidationCallBack,
     setMinWidthImageUpload,
     minWidthImageUpload,
+    setNewCropAspectRatio,
+    newCropAspectRatio,
   };
 }
 
