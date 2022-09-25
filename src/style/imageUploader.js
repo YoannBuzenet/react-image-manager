@@ -33,4 +33,13 @@ export const useCustomizedStyle = () =>
         margin: "auto",
       },
     },
+    dataImage: {
+      display: "flex",
+      marginBottom: "1rem",
+      "& p": {
+        fontSize: "1.2rem",
+        marginRight: "10px",
+        fontWeight: "bold",
+      },
+    },
   });

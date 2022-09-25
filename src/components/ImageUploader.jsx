@@ -14,6 +14,10 @@ const ImageUploader = () => {
   const [crop, setCrop] = useState();
   const [adjustedHeightImage, setAdjustedHeightImage] = useState(0);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [statImage, setStateImage] = useState({
+    width: null,
+    height: null,
+  });
 
   const { uploadProperties, tagList, withTags, cropProperties } =
     useContext(ImageManagerContext);
@@ -54,6 +58,10 @@ const ImageUploader = () => {
         setDocumentUploaded(URL.createObjectURL(file));
 
         const { width, height } = img;
+        setStateImage({
+          width,
+          height,
+        });
 
         const adjustedHeight = Math.round((680 * height) / width);
         setAdjustedHeightImage(adjustedHeight);
@@ -166,6 +174,14 @@ const ImageUploader = () => {
             setCrop={setCrop}
             adjustedHeightImage={adjustedHeightImage}
           />
+          <div className={classes.dataImage}>
+            {statImage.width && <p>Width: {statImage.width} px</p>}
+            {statImage.height && <p>Height: {statImage.height} px</p>}
+          </div>
+          <div className={classes.dataImage}>
+            {crop?.width && <p>Croppped Width: {crop?.width} px</p>}
+            {crop?.height && <p>Cropped Height: {crop?.height} px</p>}
+          </div>
         </div>
       )}
       <div
