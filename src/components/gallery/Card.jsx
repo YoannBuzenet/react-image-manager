@@ -1,7 +1,6 @@
 import CardImageObject from "./CardImageObject";
 import CardImageString from "./CardImageString";
 import { useCustomizedStyle } from "../../style/card.js";
-import { useState } from "react";
 
 const Card = ({ image, selectedImages, setSelectedImages, id }) => {
   const classes = useCustomizedStyle()();

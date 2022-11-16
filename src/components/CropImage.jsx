@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ReactCrop from "react-image-crop";
 import { useCustomizedStyle } from "../style/crop.js";
 import ImageManagerContext from "../contexts/index";
