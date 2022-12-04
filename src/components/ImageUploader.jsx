@@ -146,29 +146,29 @@ const ImageUploader = () => {
 
     //TODO map all props and check there are no JS objects ?
 
-    try {
-      const resp = await axios.post(
-        uploadProperties.urlUpload,
-        { ...formData, ...uploadProperties.additionalPayloadUpload },
-        {
+    for (const prop in uploadProperties.additionalPayloadUpload){
+      formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
+    }
+    
+      try {
+        const resp = await axios.post(uploadProperties.urlUpload, formData, {
           ...uploadProperties.axiosHeadersUpload,
           "Content-Type": "multipart/form-data",
-        }
-      );
-      console.log("RESP OK ?", resp);
+        });
+        console.log("RESP OK ?", resp);
 
-      // Success callback function if defined
-      if (uploadProperties.onSuccessUpload) {
-        uploadProperties.onSuccessUpload(resp);
+        // Success callback function if defined
+        if (uploadProperties.onSuccessUpload) {
+          uploadProperties.onSuccessUpload(resp);
+        }
+      } catch (e) {
+        // Failure callback function if defined
+        if (uploadProperties.onFailureupload) {
+          uploadProperties.onFailureupload(e);
+        } else {
+          console.log("Error while uploading picture. Error :", e);
+        }
       }
-    } catch (e) {
-      // Failure callback function if defined
-      if (uploadProperties.onFailureupload) {
-        uploadProperties.onFailureupload(e);
-      } else {
-        console.log("Error while uploading picture. Error :", e);
-      }
-    }
   };
 
   return (
