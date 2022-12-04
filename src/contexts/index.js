@@ -28,6 +28,7 @@ export default React.createContext({
   uploadProperties: {
     urlUpload: null,
     axiosHeadersUpload: {},
+    additionalPayloadUpload : {},
     onSuccessUpload: null,
     onFailureupload: null,
     onFailureuploadImageTooSmall: (minWidth) => {},

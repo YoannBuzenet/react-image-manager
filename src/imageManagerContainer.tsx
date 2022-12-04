@@ -24,6 +24,7 @@ export const ImageManagerContainer = ({
   cropCircularCrop,
   urlUpload,
   axiosHeadersUpload,
+  additionalPayloadUpload,
   onSuccessUpload,
   onFailureupload,
   onFailureuploadImageTooSmall = (minWidth) => {},
@@ -78,6 +79,7 @@ export const ImageManagerContainer = ({
     uploadProperties: {
       urlUpload,
       axiosHeadersUpload,
+      additionalPayloadUpload,
       onSuccessUpload,
       onFailureupload,
       minWidthImageUploadInitial,

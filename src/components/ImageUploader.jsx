@@ -147,10 +147,14 @@ const ImageUploader = () => {
     //TODO map all props and check there are no JS objects ?
 
     try {
-      const resp = await axios.post(uploadProperties.urlUpload, formData, {
-        ...uploadProperties.axiosHeadersUpload,
-        "Content-Type": "multipart/form-data",
-      });
+      const resp = await axios.post(
+        uploadProperties.urlUpload,
+        { ...formData, ...uploadProperties.additionalPayloadUpload },
+        {
+          ...uploadProperties.axiosHeadersUpload,
+          "Content-Type": "multipart/form-data",
+        }
+      );
       console.log("RESP OK ?", resp);
 
       // Success callback function if defined
