@@ -137,6 +137,12 @@ const ImageUploader = () => {
     for (const key in fields) {
       formData.append(key, fields[key].value);
     }
+
+    // Adding custom paylord properties passed from props
+    for (const prop in uploadProperties.additionalPayloadUpload) {
+      formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
+    }
+
     formData.append("x", crop?.x * ratioDimensionsImage);
     formData.append("y", crop?.y * ratioDimensionsImage);
     formData.append("width", crop?.width * ratioDimensionsImage);
@@ -146,9 +152,9 @@ const ImageUploader = () => {
 
     //TODO map all props and check there are no JS objects ?
 
-    for (const prop in uploadProperties.additionalPayloadUpload){
-      formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
-    }
+    
+
+    console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
     
       try {
         const resp = await axios.post(uploadProperties.urlUpload, formData, {
