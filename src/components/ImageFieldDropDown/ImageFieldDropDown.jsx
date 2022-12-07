@@ -39,7 +39,7 @@ console.log('Dropdown keys', keys)
           defaultValue={defaultValue}
         >
           {keys.map((oneKey, index) => (
-            <MenuItem value={oneKey.value} key={index}>
+            <MenuItem value={oneKey.value} key={index} >
               {oneKey.name}
             </MenuItem>
           ))}

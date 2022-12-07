@@ -227,7 +227,7 @@ const ImageUploader = () => {
                       handleChange={handleChangeFields}
                       name={objectField.name}
                       isRequired={objectField.isRequired}
-                      key={objectField.name}
+                      key={index}
                       stateFields={fields}
                     />
                   );
@@ -237,7 +237,7 @@ const ImageUploader = () => {
                       handleChange={handleChangeFields}
                       name={objectField.name}
                       isRequired={objectField.isRequired}
-                      key={objectField.name}
+                      key={index}
                       stateFields={fields}
                       keys={objectField.keys}
                       defaultValue={objectField.value}
