@@ -3,7 +3,8 @@ import { useCustomizedStyle } from "../style/imageUploader.js";
 import CropImage from "./CropImage.jsx";
 import ImageManagerContext from "../contexts/index";
 import axios from "axios";
-import ImageField from "./ImageField.jsx";
+import ImageField from "./ImageFieldInput";
+import ImageFieldDropDown from "./ImageFieldDropDown/ImageFieldDropDown";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { WIDTH_IMAGE } from "../config/consts";
@@ -31,8 +32,10 @@ const ImageUploader = () => {
   const defaultStateFields = uploadProperties.imageFields.reduce(
     (total, current) => {
       total[current.name] = {
-        value: "",
+        value: current?.defaultValue || "",
         isRequired: current?.isRequired || false,
+        type: current?.type || "input",
+        keys: current?.keys || [],
       };
       return total;
     },
@@ -213,15 +216,32 @@ const ImageUploader = () => {
         {documentUploaded && (
           <div>
             <div className={classes.fieldContainer}>
-              {uploadProperties.imageFields.map((objectField, index) => (
-                <ImageField
-                  handleChange={handleChangeFields}
-                  name={objectField.name}
-                  isRequired={objectField.isRequired}
-                  key={index}
-                  stateFields={fields}
-                />
-              ))}
+              {uploadProperties.imageFields.map((objectField, index) => {
+                if (objectField.type === "input"){
+
+                  return <ImageField
+                    handleChange={handleChangeFields}
+                    name={objectField.name}
+                    isRequired={objectField.isRequired}
+                    key={index}
+                    stateFields={fields}
+                  />;
+                }
+                else if(objectField.type === "dropdown"){
+                  return (
+                    <ImageFieldDropDown
+                      handleChange={handleChangeFields}
+                      name={objectField.name}
+                      isRequired={objectField.isRequired}
+                      key={index}
+                      stateFields={fields}
+                      keys={objectField.keys}
+                      defaultValue={objectField.value}
+                    />
+                  );
+                }
+              }
+              )}
             </div>
             {withTags && (
               <div className={classes.tagContainer}>
