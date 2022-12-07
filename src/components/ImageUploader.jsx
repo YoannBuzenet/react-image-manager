@@ -181,6 +181,9 @@ const ImageUploader = () => {
       }
   };
 
+  console.log('image fields', uploadProperties.imageFields)
+  console.log("fields as state", defaultStateFields);
+
   return (
     <div style={{ overflowY: documentUploaded ? "scroll" : "auto" }}>
       {documentUploaded && (
@@ -218,17 +221,17 @@ const ImageUploader = () => {
           <div>
             <div className={classes.fieldContainer}>
               {uploadProperties.imageFields.map((objectField, index) => {
-                if (objectField.type === "input"){
-
-                  return <ImageField
-                    handleChange={handleChangeFields}
-                    name={objectField.name}
-                    isRequired={objectField.isRequired}
-                    key={index}
-                    stateFields={fields}
-                  />;
-                }
-                else if(objectField.type === "dropdown"){
+                if (objectField.type === "input" || objectField?.type === undefined) {
+                  return (
+                    <ImageField
+                      handleChange={handleChangeFields}
+                      name={objectField.name}
+                      isRequired={objectField.isRequired}
+                      key={index}
+                      stateFields={fields}
+                    />
+                  );
+                } else if (objectField.type === "dropdown") {
                   return (
                     <ImageFieldDropDown
                       handleChange={handleChangeFields}
