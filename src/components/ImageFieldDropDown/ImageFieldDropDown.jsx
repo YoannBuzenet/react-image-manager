@@ -16,13 +16,16 @@ const ImageFieldDropDown = ({ name, keys, handleChange, isRequired, defaultValue
   return (
     <div className={classes.imageFieldContainer}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{name}</InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          {name}
+          {isRequired && " *"}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
           label={name}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, name)}
         >
           {keys.map((oneKey) => (
             <MenuItem value={oneKey.value} key={oneKey.value}>
@@ -31,18 +34,6 @@ const ImageFieldDropDown = ({ name, keys, handleChange, isRequired, defaultValue
           ))}
         </Select>
       </FormControl>
-      {/* <div>
-        <label htmlFor={name} className={classes.imageFieldLabel}>
-          {name}
-          {isRequired && " *"}
-        </label>
-      </div>
-      <input
-        id={name}
-        value={stateFields?.[name].value}
-        onChange={(e) => handleChange(e, name)}
-        className={classes.imageFieldInput}
-      /> */}
     </div>
   );
 };

@@ -80,8 +80,10 @@ const ImageUploader = () => {
   };
 
   const handleChangeFields = (e, key) => {
+    console.log()
     setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
   };
+  
 
   const isUploadButtonDisabled = () => {
     let isDisabled = false;
