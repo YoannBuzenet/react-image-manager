@@ -23,9 +23,10 @@ const ImageFieldDropDown = ({ name, keys, handleChange, isRequired, defaultValue
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={stateFields?.[name].value}
           label={name}
           onChange={(e) => handleChange(e, name)}
+          defaultValue={defaultValue}
         >
           {keys.map((oneKey) => (
             <MenuItem value={oneKey.value} key={oneKey.value}>
