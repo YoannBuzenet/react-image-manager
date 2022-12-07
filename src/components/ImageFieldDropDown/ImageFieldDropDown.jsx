@@ -11,7 +11,14 @@ import FormControl from "@mui/material/FormControl";
 // le nom de la key
 // {type : "dropdown", name : "language", keys : [{name : "", value : "1"},{name : "", value : "2"}],defaultValue : "2", isRequired : true}
 
-const ImageFieldDropDown = ({ name, keys, handleChange, isRequired, defaultValue }) => {
+const ImageFieldDropDown = ({
+  name,
+  keys,
+  handleChange,
+  isRequired,
+  defaultValue,
+  stateFields,
+}) => {
   const classes = useCustomizedStyle()();
   return (
     <div className={classes.imageFieldContainer}>
