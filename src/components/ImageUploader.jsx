@@ -80,7 +80,6 @@ const ImageUploader = () => {
   };
 
   const handleChangeFields = (e, key) => {
-    console.log()
     setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
   };
   

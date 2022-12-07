@@ -20,6 +20,9 @@ const ImageFieldDropDown = ({
   stateFields,
 }) => {
   const classes = useCustomizedStyle()();
+
+console.log('Dropdown keys', keys)
+
   return (
     <div className={classes.imageFieldContainer}>
       <FormControl fullWidth>
@@ -35,8 +38,8 @@ const ImageFieldDropDown = ({
           onChange={(e) => handleChange(e, name)}
           defaultValue={defaultValue}
         >
-          {keys.map((oneKey) => (
-            <MenuItem value={oneKey.value} key={oneKey.value}>
+          {keys.map((oneKey, index) => (
+            <MenuItem value={oneKey.value} key={index}>
               {oneKey.name}
             </MenuItem>
           ))}
