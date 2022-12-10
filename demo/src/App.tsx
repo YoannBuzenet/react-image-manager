@@ -1,5 +1,6 @@
 import './App.css'
 import {ImageManagerContainer} from "../../src/imageManagerContainer"
+import {sampleTags,sampleListOfImages} from "./debug/dataSample.js"
 
 function App() {
 
@@ -45,8 +46,8 @@ function App() {
           console.log('Callback Prop onFailureuploadImageTooSmall -> Upload failure !')
         }}
         onSelectImages={(arrayOfSelectedImages) => { console.log('CallBack arrayOfSelectedImages -> Param :' + arrayOfSelectedImages)}}
-        galleryImages={imagesGallerie}
-        tagList={tags}
+        galleryImages={sampleListOfImages}
+        tagList={sampleTags}
         withTags
         customPropsToPass={{ language: "en-us" }}
         additionalPayloadUpload={{
