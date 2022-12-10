@@ -24,3 +24,8 @@ export type Tag = {
     createdAt: string;
     updatedAt: string;
 }
+
+export enum EnabledModes {
+    Upload = "upload",
+    Gallery = "gallery"
+}

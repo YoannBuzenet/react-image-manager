@@ -1,6 +1,7 @@
 import './App.css'
 import {ImageManagerContainer} from "../../src/imageManagerContainer"
 import {sampleTags,sampleListOfImages} from "./debug/dataSample.js"
+import { EnabledModes, Image } from '../../src/types/types'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
         cropAspectRatio={2}
         urlUpload={`${process.env.NEXT_PUBLIC_API_URL}/api/entities/images`}
         minWidthImageUploadInitial={700}
-        enabledModes={["gallery", "upload"]}
+        enabledModes={[EnabledModes.Gallery, EnabledModes.Upload]}
         imageFields={[
           {
             type: "input",
@@ -45,7 +46,7 @@ function App() {
         onFailureuploadImageTooSmall={(minWidth: number) => {
           console.log('Callback Prop onFailureuploadImageTooSmall -> Upload failure !. Param minWitdh : ' + minWidth)
         }}
-        onSelectImages={(arrayOfSelectedImages) => { console.log('CallBack arrayOfSelectedImages -> Param :' + arrayOfSelectedImages)}}
+        globalOnSelectImages={(arrayOfSelectedImages: Image[]) => { console.log('CallBack arrayOfSelectedImages -> Param :' + arrayOfSelectedImages)}}
         galleryImages={sampleListOfImages}
         tagList={sampleTags}
         withTags
