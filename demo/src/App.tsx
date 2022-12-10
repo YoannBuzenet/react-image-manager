@@ -5,15 +5,11 @@ import { EnabledModes, Image } from '../../src/types/types'
 
 function App() {
 
-  // gallerie d'images
-  // liste de tags
-  // type des imagesFields chelou
-
   return (
     <div className="App">
       <ImageManagerContainer
         cropAspectRatio={2}
-        urlUpload={`${process.env.NEXT_PUBLIC_API_URL}/api/entities/images`}
+        urlUpload={`test/api/entities/images`}
         minWidthImageUploadInitial={700}
         enabledModes={[EnabledModes.Gallery, EnabledModes.Upload]}
         imageFields={[

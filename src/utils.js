@@ -1,4 +1,4 @@
-function getNearestBreakPoint(widthScreen) {
+export function getNearestBreakPoint(widthScreen) {
   // console.log("widthScreen", widthScreen);
 
   if (widthScreen < 320) {
@@ -20,7 +20,7 @@ function getNearestBreakPoint(widthScreen) {
   }
 }
 
-function removeDuplicateFromArrayOfImages(array) {
+export function removeDuplicateFromArrayOfImages(array) {
   if (!Array.isArray(array)) {
     throw new Error("Parameter must be an array.");
   }
@@ -48,7 +48,7 @@ function removeDuplicateFromArrayOfImages(array) {
   return uniqueArray;
 }
 
-function getAllInfosFromImageHash(arrayOfImages, arrayOfHashes) {
+export function getAllInfosFromImageHash(arrayOfImages, arrayOfHashes) {
   if (!Array.isArray(arrayOfImages)) {
     throw new Error("Parameter arrayOfImages must be an array.");
   }
@@ -81,8 +81,4 @@ function getAllInfosFromImageHash(arrayOfImages, arrayOfHashes) {
   return arrayOfImageInfos;
 }
 
-module.exports = {
-  getNearestBreakPoint,
-  removeDuplicateFromArrayOfImages,
-  getAllInfosFromImageHash,
-};
+

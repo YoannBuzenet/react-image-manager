@@ -1,4 +1,2 @@
-const WIDTH_IMAGE = 680;
-module.exports = {
-  WIDTH_IMAGE,
-};
+export const WIDTH_IMAGE = 680;
+
