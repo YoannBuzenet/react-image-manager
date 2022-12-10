@@ -1,4 +1,4 @@
-export type image =  {
+export type Image =  {
     id: number;
     path: string;
     name: string;
@@ -17,7 +17,7 @@ export type image =  {
     }[];
 }
 
-export type tag = {
+export type Tag = {
     id: number;
     name: string;
     language: string;

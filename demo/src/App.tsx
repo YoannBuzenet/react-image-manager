@@ -42,8 +42,8 @@ function App() {
         onFailureupload={() =>
           console.log('Callback Prop onFailureupload -> Upload failure !')
         }
-        onFailureuploadImageTooSmall={(minWidth) => {
-          console.log('Callback Prop onFailureuploadImageTooSmall -> Upload failure !')
+        onFailureuploadImageTooSmall={(minWidth: number) => {
+          console.log('Callback Prop onFailureuploadImageTooSmall -> Upload failure !. Param minWitdh : ' + minWidth)
         }}
         onSelectImages={(arrayOfSelectedImages) => { console.log('CallBack arrayOfSelectedImages -> Param :' + arrayOfSelectedImages)}}
         galleryImages={sampleListOfImages}

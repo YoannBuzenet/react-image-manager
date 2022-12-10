@@ -2,6 +2,43 @@ import React from "react";
 import { useState } from "react";
 import ImageManagerContext from "./contexts/index";
 import ImageManager from "./imageManager";
+import {Tag, Image} from "./types/types"
+
+type ImageManagerContainerProps = {
+  children,
+  cropAspectRatio,
+  cropMinWidth,
+  cropMinHeight,
+  cropMaxWidth,
+  cropMaxHeight,
+  cropKeepSelection,
+  cropDisabled,
+  cropLocked,
+  cropClassName,
+  cropstyle,
+  cropOnComplete,
+  cropPercentCrop,
+  cropOnDragStart,
+  cropOnDragEnd,
+  cropRenderSelectionAddon,
+  cropRuleOfThirds,
+  cropCircularCrop,
+  urlUpload,
+  axiosHeadersUpload,
+  additionalPayloadUpload,
+  onSuccessUpload,
+  onFailureupload,
+  onFailureuploadImageTooSmall ,
+  minWidthImageUploadInitial ,
+  imageFields,
+  galleryImages: Image[],
+  canSelectSeveralImages,
+  withTags,
+  tagList: Tag[] ,
+  globalOnSelectImages,
+  enabledModes,
+  customPropsToPass,
+}
 
 export const ImageManagerContainer = ({
   children,
@@ -37,7 +74,7 @@ export const ImageManagerContainer = ({
   globalOnSelectImages = () => {},
   enabledModes = ["upload", "gallery"],
   customPropsToPass = {},
-}) => {
+}: ImageManagerContainerProps) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
   const [onValidationCallBack, setOnValidationCallBack] = useState(null);
