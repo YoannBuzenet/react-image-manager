@@ -30,21 +30,23 @@ export function useImageManager() {
 }
 
 function getWindowDimensions() {
-  if (typeof window !== "undefined") {
+  useEffect(()=>{
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,
       height,
     };
-  } else {
-    return { width: 1024, height: 768 };
-  }
+  }, [])
 }
 
 export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(
+  let [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
+
+  if(!windowDimensions){
+    windowDimensions = { width: 1024, height: 768 };
+  }
 
   useEffect(() => {
     function handleResize() {

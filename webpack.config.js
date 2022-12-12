@@ -1,11 +1,25 @@
+const webpack = require("webpack");
 const path = require("path");
-
 const dir_js = path.resolve(__dirname, "src");
 const dir_build = path.resolve(__dirname, "build");
 const dir_dist = path.resolve(__dirname, "dist");
 const dir_node_modules = path.resolve(__dirname, "node_modules");
+var nodeExternals = require("webpack-node-externals");
+
 
 const config = {
+  // TRYING TO WORK AROUND THE NEXTJS PROBLEM "window is not defined"
+  // Nothing here works, I kept it to follow up
+  plugins: [
+    // new webpack.IgnorePlugin({ resourceRegExp: /FormData/ }),
+    // throw Error: Cannot find module './toFormData.js' coté serveur sur l'app nextjs
+  ],
+  // https://stackoverflow.com/questions/33001237/webpack-not-excluding-node-modules/35820388#35820388
+  // target: "node", // use require() & use NodeJs CommonJS style
+  // externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  // externalsPresets: {
+  //   node: true, // in order to ignore built-in modules like path, fs, etc.
+  // },
   entry: [path.resolve(dir_js, "index.js")],
   mode: "development",
   output: {
@@ -15,7 +29,7 @@ const config = {
     globalObject: "this",
   },
   resolve: {
-    extensions: [".js", ".jsx", ".tsx"],
+    extensions: [".js", ".jsx", ".tsx", ".ts"],
     fallback: {
       crypto: require.resolve("crypto-browserify"),
       stream: require.resolve("stream-browserify"),
@@ -29,7 +43,7 @@ const config = {
     rules: [
       {
         use: "babel-loader",
-        test: /\.js|\.jsx|\.tsx$/,
+        test: /\.js|\.jsx|\.ts|\.tsx$/,
         exclude: dir_node_modules,
       },
     ],

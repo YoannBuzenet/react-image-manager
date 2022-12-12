@@ -130,6 +130,7 @@ const ImageUploader = () => {
     // width: 346.5111999511719
     // x: 139.39031982421875
     // y: 37.63502502441406
+    
 
     if (!uploadProperties.urlUpload) {
       throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";

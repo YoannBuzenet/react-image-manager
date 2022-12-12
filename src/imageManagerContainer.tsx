@@ -4,8 +4,8 @@ import ImageManagerContext from "./contexts/index";
 import ImageManager from "./imageManager";
 import {Tag, Image, EnabledModes} from "./types/types"
 
-type ImageManagerContainerProps = {
-  children,
+export type ImageManagerContainerProps = {
+  children?: any,
   cropAspectRatio ?: any,
   cropMinWidth?: number,
   cropMinHeight?: number,
@@ -38,7 +38,7 @@ type ImageManagerContainerProps = {
   globalOnSelectImages?: any,
   enabledModes?: EnabledModes[],
   customPropsToPass?: any,
-}
+};
 
 export const ImageManagerContainer = ({
   children,
