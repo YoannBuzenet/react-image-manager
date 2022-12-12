@@ -2,8 +2,12 @@ import './App.css'
 import {ImageManagerContainer} from "../../src/imageManagerContainer"
 import {sampleTags,sampleListOfImages} from "./debug/dataSample.js"
 import { EnabledModes, Image } from '../../src/types/types'
+import DemoButton from './DemoButton'
+
 
 function App() {
+
+  
 
   return (
     <div className="App">
@@ -51,7 +55,9 @@ function App() {
           test : "additionnal Payload to send"
         }}
       >
-      <h1>Vite + React</h1>
+      <h1>Local demo/test App</h1>
+
+      <DemoButton />
       </ImageManagerContainer>
     </div>
   )

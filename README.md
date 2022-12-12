@@ -79,8 +79,8 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 - `import "react-image-crop/dist/ReactCrop.css";`
 
 ### Nextjs apps - Add this to make it work
-
-- To make react-jss work, you need to implement this in \_document.jsx : https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
+- Import the css file written just above
+- To make react-jss work, you need to implement this in \_document.jsx (just copy/paste): https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
 - There can be problems with server-side rendering with nextJS after importing ImageManagerContainer. To avoid so, use dynamic import with ssr : false
 ```js
 const ImageManagerContainer: any = dynamic(() =>
@@ -95,7 +95,7 @@ const ImageManagerContainer: any = dynamic(() =>
 TO DO
 
 - Search how to make the component props displayed on vscode thanks to ts
-- Add types
+- Add types in index.d.ts
 - Allow better override of CSS and css-in-js
 - We can zoom and rotate the image in uploader
 
