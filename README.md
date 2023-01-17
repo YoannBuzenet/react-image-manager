@@ -78,22 +78,6 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 - `import "react-image-manager/dist/pagination.css";`
 - `import "react-image-crop/dist/ReactCrop.css";`
 
-### Nextjs apps - Add this to make it work
-
-- Import the css file written just above
-- To make react-jss work, you need to implement this in \_document.jsx (just copy/paste): https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
-- There can be problems with server-side rendering with nextJS after importing ImageManagerContainer. To avoid so, use dynamic import with ssr : false
-
-```js
-const ImageManagerContainer: any = dynamic(
-  () =>
-    import("react-image-manager").then(
-      (module) => module.ImageManagerContainer
-    ),
-  { ssr: false }
-);
-```
-
 ### Various
 
 [Gist](https://gist.github.com/YoannBuzenet/0ad6c2aa5f8f815e91282e2e26be949d) on how to resize the image with sharp library, server side
@@ -108,3 +92,4 @@ TO DO
 HELP ME ?
 
 - Any idea is welcome, the project is here to live! Open an issue and feel welcome!
+- You can check the TODO.md file for suggestions

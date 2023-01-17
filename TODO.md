@@ -1,1 +1,7 @@
-- Remove Mui to maybe remove the `window is not defined` happening on nextjs, even next13 with full `use client`
+- Remove MUI to maybe remove the `window is not defined` happening on nextjs, even next13 with full `use client`
+- Finish Setup Test app (`demo` folder) to easily test RIM
+- Setup a next app v12 to see how it behaves
+- Setup a next app v13 to see how it behaves
+- Refacto, code is awful rn omg
+- Typescript ftw
+- Allow more customization by user
