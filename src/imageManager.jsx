@@ -41,10 +41,10 @@ const ImageManager = () => {
               <div className="imageManagerContainer__top">
                 <div className="imageManagerContainer__top__left"></div>
                 <div className="imageManagerContainer__top__right">
-                  <div className={classes.closeButtonContainer}>
+                  <div className="closeButtonContainer">
                     <div
                       onClick={() => setIsDisplayedImageManager(false)}
-                      className={classes.closeButton}
+                      className="closeButton"
                     ></div>
                   </div>
                 </div>

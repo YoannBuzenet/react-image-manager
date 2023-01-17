@@ -37,39 +37,6 @@ export const useCustomizedStyle = (options) => {
         textDecoration: "underline",
       },
     },
-    closeButtonContainer: {
-      position: "relative",
-    },
-    closeButton: {
-      position: "absolute",
-      cursor: "pointer",
-      top: "0px",
-      right: "0px",
-      width: "32px",
-      height: "32px",
-      opacity: "0.3",
-      zIndex: 10001,
-      "&:hover": {
-        opacity: 1,
-      },
-      "&:before": {
-        position: "absolute",
-        left: "15px",
-        content: '""',
-        height: "33px",
-        width: "2px",
-        backgroundColor: "black",
-        transform: "rotate(45deg)",
-      },
-      "&:after": {
-        position: "absolute",
-        left: "15px",
-        content: '""',
-        height: "33px",
-        width: "2px",
-        backgroundColor: "black",
-        transform: "rotate(-45deg)",
-      },
-    },
+    
   });
 };

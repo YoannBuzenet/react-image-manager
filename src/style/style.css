@@ -32,6 +32,46 @@
   width: 50%;
 }
 
+.closeButtonContainer {
+  position: "relative";
+}
+
+.closeButton {
+  position: "absolute";
+  cursor: "pointer";
+  top: "0px";
+  right: "0px";
+  width: "32px";
+  height: "32px";
+  opacity: "0.3";
+  z-index: 10001;
+}
+
+.closeButton:hover {
+  opacity: 1,
+}
+
+.closeButton:before {
+  position: "absolute";
+  left: "15px";
+  content: '""';
+  height: "33px";
+  width: "2px";
+  background-color: "black";
+  transform: "rotate(45deg)";
+}
+
+.closeButton:after {
+  position: "absolute";
+  left: "15px";
+  content: '""';
+  height: "33px";
+  width: "2px";
+  background-color: "black";
+  transform: "rotate(-45deg)";
+}
+
+
 /* *** *** *** *** */
 
 .impageUpladerContainer {
