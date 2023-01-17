@@ -1,16 +1,10 @@
-import { useCustomizedStyle } from "../../style/card.js";
-
 const CardImageString = ({ image, isSelected }) => {
-  const classes = useCustomizedStyle()();
-
   return (
     <div
-      className={
-        isSelected ? classes.imageContainerSelected : classes.imageContainer
-      }
+      className={isSelected ? "imageContainerSelected" : "card_imageContainer"}
     >
-      <img src={image} alt="Gallery Image" className={classes.image} />
-      <p className={`${classes.lightText} ${classes.infoText}`}>{image}</p>
+      <img src={image} alt="Gallery Image" className={"card_image"} />
+      <p className={`${"lightText"} ${"infoText"}`}>{image}</p>
     </div>
   );
 };

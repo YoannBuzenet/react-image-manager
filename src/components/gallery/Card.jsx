@@ -1,10 +1,7 @@
 import CardImageObject from "./CardImageObject";
 import CardImageString from "./CardImageString";
-import { useCustomizedStyle } from "../../style/card.js";
 
 const Card = ({ image, selectedImages, setSelectedImages, id }) => {
-  const classes = useCustomizedStyle()();
-
   // We want the gallery to be able to display simple URLS as well as objects
   let CompoToUse;
 
@@ -21,10 +18,7 @@ const Card = ({ image, selectedImages, setSelectedImages, id }) => {
   const isSelected = selectedImages.includes(id);
 
   return (
-    <div
-      onClick={(e) => setSelectedImages(id)}
-      className={classes.cardContainer}
-    >
+    <div onClick={(e) => setSelectedImages(id)} className={"cardContainer"}>
       <CompoToUse image={image} isSelected={isSelected} />
     </div>
   );

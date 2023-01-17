@@ -1,8 +1,4 @@
-import { useCustomizedStyle } from "../../style/card";
-
 const CardImageObject = ({ image, isSelected }) => {
-  const classes = useCustomizedStyle()();
-
   let imageNameClean = image.name;
   try {
     const imageNameWithoutFormat = image.name.split(".")[0];
@@ -15,16 +11,12 @@ const CardImageObject = ({ image, isSelected }) => {
   }
 
   return (
-    <div
-      className={
-        isSelected ? classes.imageContainerSelected : classes.imageContainer
-      }
-    >
-      <img src={image.src} alt={imageNameClean} className={classes.image} />
-      <div className={classes.infoContainer}>
+    <div className={isSelected ? "imageContainerSelected" : "imageContainer"}>
+      <img src={image.src} alt={imageNameClean} className={"card_image"} />
+      <div className={"infoContainer"}>
         <p>{imageNameClean}</p>
         {image.credits && (
-          <p className={`${classes.lightText} ${classes.infoText}`}>
+          <p className={`${"lightText"} ${"infoText"}`}>
             <span>&nbsp;|&nbsp;</span>
             {image.credits}
           </p>

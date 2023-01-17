@@ -185,6 +185,65 @@
 
 /* *** *** *** *** */
 
+/* card.jsx */
+.cardContainer {}
+
+.card_imageContainer {
+  margin-left: 20px;
+  height: 120px;
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+.card_imageContainer img:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.imageContainerSelected {
+  height: 120px;
+  width: 200px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.imageContainerSelected img {
+  border: 2px solid red;
+}
+
+.imageContainerSelected img:hover {
+  cursor: pointer,
+}
+
+.card_image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightText {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.infoContainer p {
+  display: flex;
+  align-items: center;
+}
+
+.infoText {
+  margin-top: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* *** *** *** *** */
+
 .impageUpladerContainer {
   display: flex;
   justify-content: center;
