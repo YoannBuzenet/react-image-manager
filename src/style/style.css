@@ -71,6 +71,43 @@
   transform: "rotate(-45deg)";
 }
 
+.imageManagerContainer__body {
+  position: "relative";
+  height: "100%";
+  display: "flex";
+}
+
+.imageManagerContainer__body__left {
+  width: "25%";
+  height: "100%";
+  border-right: "1px solid black";
+}
+
+.imageManagerContainer__body__right__container {
+  height: "100%";
+  width: "100%";
+  position: "relative";
+}
+
+.imageManagerContainer__body__right {
+  padding-right: "17px";
+  display: "flex";
+  justify-content: "center";
+}
+
+.imageManagerContainer__body__left__titles {
+  margin-top: 20,
+}
+
+.imageManagerContainer__body__left__titles p {
+  margin-left: "30%";
+  margin-top: "10px";
+  cursor: "pointer";
+}
+
+.imageManagerContainer__body__left__titles p:hover {
+  text-decoration: "underline",
+}
 
 /* *** *** *** *** */
 

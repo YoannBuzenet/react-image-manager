@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from "react";
 import Gallery from "./components/gallery/Gallery";
 import ImageUploader from "./components/ImageUploader";
 import ImageManagerContext from "./contexts/index";
-import { useCustomizedStyle } from "./style/react-jss-customization";
 
 // Lui va recevoir masse props overwritable
 const ImageManager = () => {
@@ -28,10 +27,6 @@ const ImageManager = () => {
 
   const [screenDisplayed, setScreenDisplayed] = useState(bootMode);
 
-  const classes = useCustomizedStyle({
-    screenDisplayed,
-  })();
-
   return (
     <>
       {isDisplayedImageManager && (
@@ -49,13 +44,11 @@ const ImageManager = () => {
                   </div>
                 </div>
               </div>
-              <div className={classes.imageManagerContainer__body}>
+              <div className="imageManagerContainer__body">
                 {enabledModes.length > 1 && (
-                  <div className={classes.imageManagerContainer__body__left}>
+                  <div className="imageManagerContainer__body__left">
                     <div
-                      className={
-                        classes.imageManagerContainer__body__left__titles
-                      }
+                      className={"imageManagerContainer__body__left__titles"}
                     >
                       {enabledModes.includes("upload") && (
                         <div onClick={() => setScreenDisplayed("upload")}>
@@ -73,12 +66,10 @@ const ImageManager = () => {
                 {/* We add a container here to be able to hide scrolling bar */}
                 {/* https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */}
                 <div
-                  className={
-                    classes.imageManagerContainer__body__right__container
-                  }
+                  className={"imageManagerContainer__body__right__container"}
                 >
                   <div
-                    className={classes.imageManagerContainer__body__right}
+                    className={"imageManagerContainer__body__right"}
                     style={{
                       height: screenDisplayed === "upload" ? "100%" : "auto",
                     }}
