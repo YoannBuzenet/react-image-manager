@@ -1,11 +1,8 @@
-import { useCustomizedStyle } from "../style/imageField.js";
-
 const ImageField = ({ name, stateFields, handleChange, isRequired }) => {
-  const classes = useCustomizedStyle()();
   return (
-    <div className={classes.imageFieldContainer}>
+    <div>
       <div>
-        <label htmlFor={name} className={classes.imageFieldLabel}>
+        <label htmlFor={name} className={"imageFieldLabel"}>
           {name}
           {isRequired && " *"}
         </label>
@@ -14,7 +11,7 @@ const ImageField = ({ name, stateFields, handleChange, isRequired }) => {
         id={name}
         value={stateFields?.[name].value}
         onChange={(e) => handleChange(e, name)}
-        className={classes.imageFieldInput}
+        className={"imageFieldInput"}
       />
     </div>
   );
