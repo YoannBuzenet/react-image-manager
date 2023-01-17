@@ -11,7 +11,9 @@ const CardImageObject = ({ image, isSelected }) => {
   }
 
   return (
-    <div className={isSelected ? "imageContainerSelected" : "imageContainer"}>
+    <div
+      className={isSelected ? "imageContainerSelected" : "card_imageContainer"}
+    >
       <img src={image.src} alt={imageNameClean} className={"card_image"} />
       <div className={"infoContainer"}>
         <p>{imageNameClean}</p>

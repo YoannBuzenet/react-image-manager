@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import config from "../../config/config";
 import ImageManagerContext from "../../contexts/index";
 import { useWindowDimensions } from "../../hooks/hooks";
-import { useCustomizedStyle } from "../../style/gallery";
 import {
   getAllInfosFromImageHash,
   getNearestBreakPoint,
@@ -51,9 +50,6 @@ const Gallery = () => {
   const handleSelectTags = (e, value) => {
     setSelectedTags(value);
   };
-
-  // CSS-in-js
-  const classes = useCustomizedStyle(withTags)();
 
   // Search by name or url
   const [search, setSearch] = useState("");

@@ -111,6 +111,227 @@
 
 /* *** *** *** *** */
 
+/* CropImage.jsx */
+.image {
+  width: 680px !important;
+}
+
+/* *** *** *** *** */
+
+/* ImageFieldInput */
+.imageFieldLabel {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.imageFieldInput {
+  font-size: 16px;
+  width: 100%;
+  padding: 8px;
+}
+
+/* *** *** *** *** */
+
+/* ImageUploader.jsx */
+.uploaded {}
+
+.nonUploaded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.allInputs {
+  display: "flex";
+  justify-content: "space-between";
+}
+
+.allInputs input::-webkit-file-upload-button {
+  margin: 20px 0;
+}
+
+.allInputs button {
+  margin: 20px 0;
+
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cropContainer {
+  margin-top: 40px;
+}
+
+.tagContainer>div {
+  width: 80%;
+  margin: auto;
+}
+
+.dataImage {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.dataImage p {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* *** *** *** *** */
+
+/* card.jsx */
+.cardContainer {}
+
+.card_imageContainer {
+  margin-left: 20px;
+  height: 120px;
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+.card_imageContainer img:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.imageContainerSelected {
+  height: 120px;
+  width: 200px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.imageContainerSelected img {
+  border: 2px solid red;
+}
+
+.imageContainerSelected img:hover {
+  cursor: pointer,
+}
+
+.card_image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightText {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.infoContainer p {
+  display: flex;
+  align-items: center;
+}
+
+.infoText {
+  margin-top: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Gallery.jsx */
+
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchGalleryContainer {
+  position: absolute;
+  top: 0;
+  height: 70px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.searchGalleryContainer input.withTags {
+  width: 30%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.searchGalleryContainer input.withoutTags {
+  width: 60%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.tagContainer {
+  width: 30%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.tagContainer span {
+  font-size: 14;
+}
+
+.tagContainer .MuiInputBase-root {
+  margin-top: 0;
+}
+
+.galleryImageContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+}
+
+.optionsGalleryContainer {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(242, 241, 239, 1);
+  display: flex;
+  align-content: center;
+}
+
+.optionsGalleryContainer>div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.optionsGalleryContainer>div:first-child {}
+
+.optionsGalleryContainer>div:last-child {
+  text-align: right;
+}
+
+.validationButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* *** *** *** *** */
+
+/* Generic */
+
 .impageUpladerContainer {
   display: flex;
   justify-content: center;
