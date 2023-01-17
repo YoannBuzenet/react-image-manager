@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { useCustomizedStyle } from "../style/imageUploader.js";
 import CropImage from "./CropImage.jsx";
 import ImageManagerContext from "../contexts/index";
 import axios from "axios";
@@ -10,7 +9,6 @@ import TextField from "@mui/material/TextField";
 import { WIDTH_IMAGE } from "../config/consts";
 
 const ImageUploader = () => {
-  const classes = useCustomizedStyle()();
   const [documentUploaded, setDocumentUploaded] = useState(null);
   const [documentUploadedRaw, setDocumentUploadedRaw] = useState(null);
   const [crop, setCrop] = useState();
@@ -82,7 +80,6 @@ const ImageUploader = () => {
   const handleChangeFields = (e, key) => {
     setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
   };
-  
 
   const isUploadButtonDisabled = () => {
     let isDisabled = false;
@@ -130,7 +127,6 @@ const ImageUploader = () => {
     // width: 346.5111999511719
     // x: 139.39031982421875
     // y: 37.63502502441406
-    
 
     if (!uploadProperties.urlUpload) {
       throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";
@@ -157,72 +153,71 @@ const ImageUploader = () => {
 
     //TODO map all props and check there are no JS objects ?
 
-    
-
     console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
-    
-      try {
-        const resp = await axios.post(uploadProperties.urlUpload, formData, {
-          ...uploadProperties.axiosHeadersUpload,
-          "Content-Type": "multipart/form-data",
-        });
-        console.log("RESP OK ?", resp);
 
-        // Success callback function if defined
-        if (uploadProperties.onSuccessUpload) {
-          uploadProperties.onSuccessUpload(resp);
-        }
-      } catch (e) {
-        // Failure callback function if defined
-        if (uploadProperties.onFailureupload) {
-          uploadProperties.onFailureupload(e);
-        } else {
-          console.log("Error while uploading picture. Error :", e);
-        }
+    try {
+      const resp = await axios.post(uploadProperties.urlUpload, formData, {
+        ...uploadProperties.axiosHeadersUpload,
+        "Content-Type": "multipart/form-data",
+      });
+      console.log("RESP OK ?", resp);
+
+      // Success callback function if defined
+      if (uploadProperties.onSuccessUpload) {
+        uploadProperties.onSuccessUpload(resp);
       }
+    } catch (e) {
+      // Failure callback function if defined
+      if (uploadProperties.onFailureupload) {
+        uploadProperties.onFailureupload(e);
+      } else {
+        console.log("Error while uploading picture. Error :", e);
+      }
+    }
   };
 
-  console.log('image fields', uploadProperties.imageFields)
+  console.log("image fields", uploadProperties.imageFields);
   console.log("fields as state", defaultStateFields);
 
   return (
     <div style={{ overflowY: documentUploaded ? "scroll" : "auto" }}>
       {documentUploaded && (
-        <div className={classes.cropContainer}>
+        <div className={"cropContainer"}>
           <CropImage
             src={documentUploaded}
             crop={crop}
             setCrop={setCrop}
             adjustedHeightImage={adjustedHeightImage}
           />
-          <div className={classes.dataImage}>
+          <div className={"dataImage"}>
             {statImage.width && <p>Width: {statImage.width} px</p>}
             {statImage.height && <p>Height: {statImage.height} px</p>}
           </div>
-          <div className={classes.dataImage}>
+          <div className={"dataImage"}>
             {crop?.width && (
               <p>
-                Croppped Width: {parseInt(crop?.width * ratioDimensionsImage)}{" "}
+                Croppped Width: {parseInt(crop?.width * ratioDimensionsImage)}
                 px
               </p>
             )}
             {crop?.height && (
               <p>
-                Cropped Height: {parseInt(crop?.height * ratioDimensionsImage)}{" "}
+                Cropped Height: {parseInt(crop?.height * ratioDimensionsImage)}
                 px
               </p>
             )}
           </div>
         </div>
       )}
-      <div
-        className={documentUploaded ? classes.uploaded : classes.nonUploaded}
-      >
+      <div className={documentUploaded ? "uploaded" : "nonUploaded"}>
         {documentUploaded && (
           <div>
-            <div className={classes.fieldContainer}>
+            <div className={"fieldContainer"}>
               {uploadProperties.imageFields.map((objectField, index) => {
-                if (objectField.type === "input" || objectField?.type === undefined) {
+                if (
+                  objectField.type === "input" ||
+                  objectField?.type === undefined
+                ) {
                   return (
                     <ImageField
                       handleChange={handleChangeFields}
@@ -245,11 +240,10 @@ const ImageUploader = () => {
                     />
                   );
                 }
-              }
-              )}
+              })}
             </div>
             {withTags && (
-              <div className={classes.tagContainer}>
+              <div className={"tagContainer"}>
                 <Autocomplete
                   multiple
                   id="tags-standard"
@@ -271,8 +265,8 @@ const ImageUploader = () => {
             )}
           </div>
         )}
-        <div className={classes.allInputs}>
-          <div className={classes.inputContainer}>
+        <div className={"allInputs"}>
+          <div className={"inputContainer"}>
             <label htmlFor="uploadButton" className="customFileInput">
               CHOOSE A FILE
             </label>
@@ -286,7 +280,7 @@ const ImageUploader = () => {
             />
           </div>
           {documentUploaded && (
-            <div className={classes.inputContainer}>
+            <div className={"inputContainer"}>
               <button
                 className="customFileInput"
                 onClick={handleUpload}

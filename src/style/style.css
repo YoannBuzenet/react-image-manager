@@ -132,6 +132,58 @@
 
 /* *** *** *** *** */
 
+/* ImageUploader.jsx */
+.uploaded {}
+
+.nonUploaded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.allInputs {
+  display: "flex";
+  justify-content: "space-between";
+}
+
+.allInputs input::-webkit-file-upload-button {
+  margin: 20px 0;
+}
+
+.allInputs button {
+  margin: 20px 0;
+
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cropContainer {
+  margin-top: 40px;
+}
+
+.tagContainer>div {
+  width: 80%;
+  margin: auto;
+}
+
+.dataImage {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.dataImage p {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* *** *** *** *** */
 
 .impageUpladerContainer {
   display: flex;
