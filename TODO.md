@@ -1,2 +1,1 @@
 - Remove Mui to maybe remove the `window is not defined` happening on nextjs, even next13 with full `use client`
-- "destroy is not a function" never happened before - which origin ?

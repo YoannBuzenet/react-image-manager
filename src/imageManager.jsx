@@ -19,7 +19,6 @@ const ImageManager = () => {
     // This way, if component is open twice in a row, it doesn't keep track on ancient selection.
     if (isDisplayedImageManager) {
       setSelectedImages([]);
-      console.log("Cleaning context of selectedImages");
     }
   }, [isDisplayedImageManager]);
 

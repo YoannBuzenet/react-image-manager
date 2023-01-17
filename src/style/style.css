@@ -111,6 +111,15 @@
 
 /* *** *** *** *** */
 
+/* CropImage.jsx */
+.image {
+  width: 680px !important,
+}
+
+/* *** *** *** *** */
+
+
+
 .impageUpladerContainer {
   display: flex;
   justify-content: center;

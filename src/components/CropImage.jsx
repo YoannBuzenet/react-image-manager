@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import ReactCrop from "react-image-crop";
-import { useCustomizedStyle } from "../style/crop.js";
 import ImageManagerContext from "../contexts/index";
 
 function CropImage({ src, crop, setCrop, adjustedHeightImage }) {
@@ -15,7 +14,6 @@ function CropImage({ src, crop, setCrop, adjustedHeightImage }) {
   // y: 37.63502502441406
   // console.log("src", src);
   // console.log("crop", crop);
-  const classes = useCustomizedStyle()();
   // console.log(cropProperties);
   return (
     <ReactCrop
@@ -56,7 +54,7 @@ function CropImage({ src, crop, setCrop, adjustedHeightImage }) {
       ruleOfThirds={cropProperties.cropRuleOfThirds}
       circularCrop={cropProperties.cropCircularCrop}
     >
-      <img src={src} className={classes.image} height={adjustedHeightImage} />
+      <img src={src} className={"image"} height={adjustedHeightImage} />
     </ReactCrop>
   );
 }
