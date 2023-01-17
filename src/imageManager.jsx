@@ -35,12 +35,12 @@ const ImageManager = () => {
   return (
     <>
       {isDisplayedImageManager && (
-        <div className={classes.imageContainer}>
+        <div className={`imageContainer`}>
           <>
-            <div className={classes.imageManagerContainer}>
-              <div className={classes.imageManagerContainer__top}>
-                <div className={classes.imageManagerContainer__top__left}></div>
-                <div className={classes.imageManagerContainer__top__right}>
+            <div className={`imageManagerContainer`}>
+              <div className="imageManagerContainer__top">
+                <div className="imageManagerContainer__top__left"></div>
+                <div className="imageManagerContainer__top__right">
                   <div className={classes.closeButtonContainer}>
                     <div
                       onClick={() => setIsDisplayedImageManager(false)}

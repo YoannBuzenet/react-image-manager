@@ -6,35 +6,6 @@ import { createUseStyles } from "react-jss";
 export const useCustomizedStyle = (options) => {
   // console.log("options reçues", options);
   return createUseStyles({
-    imageContainer: {
-      position: "fixed",
-      zIndex: 9999,
-      top: 0,
-      height: "100vh",
-      left: 0,
-      right: 0,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "rgba(0, 0, 0, .4)",
-    },
-    imageManagerContainer: {
-      position: "absolute",
-      zIndex: 10000,
-      width: "85%",
-      height: "90%",
-      borderRadius: "5px",
-      padding: "20px",
-      backgroundColor: "rgba(242, 241, 239, 1)",
-    },
-    imageManagerContainer__top: {
-      display: "flex",
-      justifyContent: "center",
-    },
-    imageManagerContainer__top__left: { width: "50%" },
-    imageManagerContainer__top__right: {
-      width: "50%",
-    },
     imageManagerContainer__body: {
       position: "relative",
       height: "100%",

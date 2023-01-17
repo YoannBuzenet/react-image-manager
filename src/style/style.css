@@ -1,3 +1,39 @@
+/* ImageManager.jsx */
+.imageContainer {
+  position: "fixed";
+  z-index: 9999;
+  top: 0;
+  height: "100vh";
+  left: 0;
+  right: 0;
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  background-color: "rgba(0, 0, 0, .4)";
+}
+
+.imageManagerContainer {
+  position: "absolute";
+  z-index: 10000;
+  width: "85%";
+  height: "90%";
+  border-radius: "5px";
+  padding: "20px";
+  background-color: "rgba(242, 241, 239, 1)";
+}
+
+.imageManagerContainer__top {
+  display: "flex";
+  justify-content: "center";
+}
+
+.imageManagerContainer__top__left,
+.imageManagerContainer__top__right {
+  width: 50%;
+}
+
+/* *** *** *** *** */
+
 .impageUpladerContainer {
   display: flex;
   justify-content: center;
@@ -8,6 +44,7 @@
 input.inputFile {
   display: none;
 }
+
 label.customFileInput,
 button.customFileInput {
   padding: 20px 40px;
