@@ -242,7 +242,95 @@
   text-overflow: ellipsis;
 }
 
+/* Gallery.jsx */
+
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchGalleryContainer {
+  position: absolute;
+  top: 0;
+  height: 70px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.searchGalleryContainer input.withTags {
+  width: 30%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.searchGalleryContainer input.withoutTags {
+  width: 60%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.tagContainer {
+  width: 30%;
+  height: 40px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.tagContainer span {
+  font-size: 14;
+}
+
+.tagContainer .MuiInputBase-root {
+  margin-top: 0;
+}
+
+.galleryImageContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+}
+
+.optionsGalleryContainer {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(242, 241, 239, 1);
+  display: flex;
+  align-content: center;
+}
+
+.optionsGalleryContainer>div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.optionsGalleryContainer>div:first-child {}
+
+.optionsGalleryContainer>div:last-child {
+  text-align: right;
+}
+
+.validationButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
 /* *** *** *** *** */
+
+/* Generic */
 
 .impageUpladerContainer {
   display: flex;

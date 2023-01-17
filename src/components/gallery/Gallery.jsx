@@ -167,15 +167,16 @@ const Gallery = () => {
   }, [search, setSelectedTags, selectedTags.length]);
 
   return (
-    <div className={classes.galleryContainer}>
-      <div className={classes.searchGalleryContainer}>
+    <div className={"galleryContainer"}>
+      <div className={"searchGalleryContainer"}>
         <input
           type="text"
           placeholder="Search by name"
           onChange={handleSearchKeyboard}
+          className={withTags ? "withTags" : "withoutTags"}
         />
         {withTags && (
-          <div className={classes.tagContainer}>
+          <div className={"tagContainer"}>
             <Autocomplete
               multiple
               id="tags-standard"
@@ -195,7 +196,7 @@ const Gallery = () => {
           </div>
         )}
       </div>
-      <div className={classes.galleryImageContainer}>
+      <div className={"galleryImageContainer"}>
         {currentItems.map((image, index) => {
           if (image.name && image.name.toLowerCase().includes(search)) {
             return (
@@ -223,7 +224,7 @@ const Gallery = () => {
           }
         })}
       </div>
-      <div className={classes.optionsGalleryContainer}>
+      <div className={"optionsGalleryContainer"}>
         <div id="pagination">
           <ReactPaginate
             breakLabel="..."
@@ -235,7 +236,7 @@ const Gallery = () => {
             renderOnZeroPageCount={null}
           />
         </div>
-        <div className={classes.validationButtonContainer}>
+        <div className={"validationButtonContainer"}>
           <button
             className="customFileInput"
             onClick={(e) => handleSelectImages(e, selectedHashes)}
