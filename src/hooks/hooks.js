@@ -30,13 +30,15 @@ export function useImageManager() {
 }
 
 function getWindowDimensions() {
-  useEffect(()=>{
+  if (typeof window !== "undefined") {
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,
       height,
     };
-  }, [])
+  } else {
+    return { width: 1024, height: 768 };
+  }
 }
 
 export function useWindowDimensions() {

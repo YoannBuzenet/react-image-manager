@@ -79,13 +79,19 @@ Import CSS files in your app. If you are running a next app, it should be in \_a
 - `import "react-image-crop/dist/ReactCrop.css";`
 
 ### Nextjs apps - Add this to make it work
+
 - Import the css file written just above
 - To make react-jss work, you need to implement this in \_document.jsx (just copy/paste): https://github.com/vercel/next.js/blob/deprecated-main/examples/with-react-jss/pages/_document.js
 - There can be problems with server-side rendering with nextJS after importing ImageManagerContainer. To avoid so, use dynamic import with ssr : false
+
 ```js
-const ImageManagerContainer: any = dynamic(() =>
-  import('react-image-manager').then((module) => module.ImageManagerContainer),{ssr:false}
-)
+const ImageManagerContainer: any = dynamic(
+  () =>
+    import("react-image-manager").then(
+      (module) => module.ImageManagerContainer
+    ),
+  { ssr: false }
+);
 ```
 
 ### Various
@@ -100,5 +106,5 @@ TO DO
 - We can zoom and rotate the image in uploader
 
 HELP ME ?
-- I don't know why I have this `window is not defined` error on nextJS when using react-image-manager without the ssr:false option. It seems to come from formData but I couldn't find the origin. It MAY have come after adding typescript presets in `babel.config.js`. You can see some stuff I tried commented in `webpack.config.js`. I also tried [this](https://stackoverflow.com/a/42957432/16097107) but I already had it in the code.
+
 - Any idea is welcome, the project is here to live! Open an issue and feel welcome!

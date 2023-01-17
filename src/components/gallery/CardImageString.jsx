@@ -1,6 +1,4 @@
 import { useCustomizedStyle } from "../../style/card.js";
-import crypto from "crypto";
-import { useEffect } from "react";
 
 const CardImageString = ({ image, isSelected }) => {
   const classes = useCustomizedStyle()();
