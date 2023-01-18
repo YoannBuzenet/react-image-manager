@@ -236,7 +236,7 @@ const ImageUploader = () => {
                       key={index}
                       stateFields={fields}
                       keys={objectField.keys}
-                      defaultValue={objectField.value}
+                      defaultValue={objectField.defaultValue}
                     />
                   );
                 }
