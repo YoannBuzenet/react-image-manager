@@ -132,6 +132,14 @@
 
 /* *** *** *** *** */
 
+/* ImageFieldDropDown.jsx */
+.imageFieldContainer {
+  font-size: 1.6rem;
+}
+
+/* *** *** *** *** */
+
+
 /* ImageUploader.jsx */
 .uploaded {}
 
@@ -143,8 +151,8 @@
 }
 
 .allInputs {
-  display: "flex";
-  justify-content: "space-between";
+  display: flex;
+  justify-content: space-between;
 }
 
 .allInputs input::-webkit-file-upload-button {
@@ -167,10 +175,6 @@
   margin-top: 40px;
 }
 
-.tagContainer>div {
-  width: 80%;
-  margin: auto;
-}
 
 .dataImage {
   display: flex;
@@ -181,6 +185,16 @@
   font-size: 1.2rem;
   margin-right: 10px;
   font-weight: bold;
+}
+
+.tagContainer {
+  height: 40px;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.tagContainer span {
+  font-size: 14;
 }
 
 /* *** *** *** *** */
@@ -273,15 +287,10 @@
   padding-left: 10px;
 }
 
-.tagContainer {
-  width: 30%;
-  height: 40px;
+.tagContainerGallery {
+  width: 50%;
+  margin-left: 30px;
   font-size: 16px;
-  padding-left: 10px;
-}
-
-.tagContainer span {
-  font-size: 14;
 }
 
 .tagContainer .MuiInputBase-root {

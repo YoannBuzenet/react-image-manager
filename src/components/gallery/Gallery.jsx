@@ -9,8 +9,7 @@ import {
 } from "../../utils";
 import Card from "./Card";
 import ReactPaginate from "react-paginate";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
+import Select from "react-select";
 
 const Gallery = () => {
   const { galleryProperties, tagList, withTags, setIsDisplayedImageManager } =
@@ -47,8 +46,8 @@ const Gallery = () => {
 
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const handleSelectTags = (e, value) => {
-    setSelectedTags(value);
+  const handleChangeFieldsDropDown = (e) => {
+    setSelectedTags(e);
   };
 
   // Search by name or url
@@ -172,22 +171,14 @@ const Gallery = () => {
           className={withTags ? "withTags" : "withoutTags"}
         />
         {withTags && (
-          <div className={"tagContainer"}>
-            <Autocomplete
-              multiple
-              id="tags-standard"
+          <div className={"tagContainerGallery"}>
+            <Select
+              onChange={handleChangeFieldsDropDown}
               options={tagList}
-              getOptionLabel={(option) => option.name}
               value={selectedTags}
-              onChange={handleSelectTags}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  variant="standard"
-                  label="Select Tags"
-                  placeholder="Tags"
-                />
-              )}
+              isClearable
+              isSearchable
+              isMulti
             />
           </div>
         )}

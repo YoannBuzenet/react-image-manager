@@ -4,10 +4,9 @@ import ImageManagerContext from "../contexts/index";
 import axios from "axios";
 import ImageField from "./ImageFieldInput";
 import ImageFieldDropDown from "./ImageFieldDropDown/ImageFieldDropDown";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
 import { WIDTH_IMAGE } from "../config/consts";
-import { DROPDOWN } from "../consts.js";
+import { DROPDOWN } from "../consts";
+import CreatableSelect from "react-select/creatable";
 
 const ImageUploader = () => {
   const [documentUploaded, setDocumentUploaded] = useState(null);
@@ -105,15 +104,18 @@ const ImageUploader = () => {
     return isDisabled;
   };
 
-  const handleSelectTags = (e, values) => {
+  const handleSelectTags = (values, option) => {
+    // console.log("handleSelectTags values", values);
+    // console.log("handleSelectTags option", option);
+
     let tagsChecked = [];
 
     if (Array.isArray(values)) {
       for (const value of values) {
         // Checking if there are new tags
-        if (typeof value === "string") {
+        if (option.action === "create-action") {
           const tagAsObject = {
-            name: value,
+            label: value,
             language: uploadProperties?.customPropsToPass?.language,
             isNewTag: true,
           };
@@ -239,7 +241,7 @@ const ImageUploader = () => {
                       stateFields={fields}
                     />
                   );
-                } else if (objectField.type === "dropdown") {
+                } else if (objectField.type === DROPDOWN) {
                   return (
                     <ImageFieldDropDown
                       handleChange={handleChangeFieldsDropDown}
@@ -256,22 +258,12 @@ const ImageUploader = () => {
             </div>
             {withTags && (
               <div className={"tagContainer"}>
-                <Autocomplete
-                  multiple
-                  id="tags-standard"
+                <CreatableSelect
+                  isClearable
                   options={tagList}
-                  getOptionLabel={(option) => option.name}
-                  value={selectedTags}
                   onChange={handleSelectTags}
-                  freeSolo
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      variant="standard"
-                      label="Select Tags"
-                      placeholder="Tags"
-                    />
-                  )}
+                  isMulti
+                  value={selectedTags}
                 />
               </div>
             )}

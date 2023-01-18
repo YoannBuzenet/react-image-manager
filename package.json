@@ -1,6 +1,6 @@
 {
   "name": "react-image-manager",
-  "version": "1.0.92",
+  "version": "1.0.100",
   "description": "Manage your image library, crop image before uploading, or just activage the features you need",
   "main": "./dist/react-image-manager.js",
   "style": [
@@ -31,10 +31,6 @@
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-typescript": "^7.18.6",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.6",
-    "@mui/styled-engine": "^5.10.6",
     "axios": "^1.1.3",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
