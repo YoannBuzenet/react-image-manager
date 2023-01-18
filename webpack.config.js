@@ -4,6 +4,7 @@ const dir_js = path.resolve(__dirname, "src");
 const dir_build = path.resolve(__dirname, "build");
 const dir_dist = path.resolve(__dirname, "dist");
 const dir_node_modules = path.resolve(__dirname, "node_modules");
+const dir_demo = path.resolve(__dirname, "demo");
 var nodeExternals = require("webpack-node-externals");
 
 
@@ -30,11 +31,6 @@ const config = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".tsx", ".ts"],
-    fallback: {
-      crypto: require.resolve("crypto-browserify"),
-      stream: require.resolve("stream-browserify"),
-      buffer: require.resolve("buffer"),
-    },
   },
   devServer: {
     contentBase: dir_build,
@@ -44,7 +40,7 @@ const config = {
       {
         use: "babel-loader",
         test: /\.js|\.jsx|\.ts|\.tsx$/,
-        exclude: dir_node_modules,
+        exclude: [dir_node_modules, dir_demo],
       },
     ],
   },

@@ -130,6 +130,8 @@ const ImageUploader = () => {
   };
 
   const handleUpload = async (event) => {
+    console.log("les fields", fields);
+
     // crop format example
     // height: 173.25559997558594
     // unit: "px"
@@ -145,10 +147,15 @@ const ImageUploader = () => {
 
     // Adding all the keys defined by the dev
     for (const key in fields) {
-      if ((fields[key].type = DROPDOWN)) {
+      console.log("key", key);
+
+      console.log("fields[key].type", fields[key].type);
+      if (fields[key].type === DROPDOWN) {
+        console.log("dropdown");
         // value is nested in value object for react-select fonctionnning purpose
         formData.append(key, fields[key].value.value);
       } else {
+        console.log("pas dropdown");
         formData.append(key, fields[key].value);
       }
     }

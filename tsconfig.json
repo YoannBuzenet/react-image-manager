@@ -10,12 +10,10 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "moduleResolution": "Classic",
     "isolatedModules": true,
-    "jsx": "preserve",
-    
+    "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/contexts/index.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "demo"]
 }
