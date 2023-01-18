@@ -28,6 +28,8 @@ const ImageFieldDropDown = ({
         onChange={(e) => handleChange(e, name)}
         options={keys}
         value={stateFields?.[name].value}
+        isClearable
+        isSearchable
       />
     </div>
   );
