@@ -132,6 +132,14 @@
 
 /* *** *** *** *** */
 
+/* ImageFieldDropDown.jsx */
+.imageFieldContainer {
+  font-size: 1.6rem;
+}
+
+/* *** *** *** *** */
+
+
 /* ImageUploader.jsx */
 .uploaded {}
 

@@ -7,6 +7,7 @@ import ImageFieldDropDown from "./ImageFieldDropDown/ImageFieldDropDown";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { WIDTH_IMAGE } from "../config/consts";
+import { DROPDOWN } from "../consts.js";
 
 const ImageUploader = () => {
   const [documentUploaded, setDocumentUploaded] = useState(null);
@@ -142,7 +143,12 @@ const ImageUploader = () => {
 
     // Adding all the keys defined by the dev
     for (const key in fields) {
-      formData.append(key, fields[key].value);
+      if ((fields[key].type = DROPDOWN)) {
+        // value is nested in value object for react-select fonctionnning purpose
+        formData.append(key, fields[key].value.value);
+      } else {
+        formData.append(key, fields[key].value);
+      }
     }
 
     // Adding custom paylord properties passed from props
