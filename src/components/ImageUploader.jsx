@@ -78,11 +78,13 @@ const ImageUploader = () => {
   };
 
   const handleChangeFields = (e, key) => {
+    setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
+  };
+
+  const handleChangeFieldsDropDown = (e, key) => {
     console.log("event received e", e);
     console.log("event received key", key);
-    console.log("event received e.target.value", e.target.value);
-
-    setFields({ ...fields, [key]: { ...fields[key], value: e.target.value } });
+    setFields({ ...fields, [key]: { ...fields[key], value: e.value } });
   };
 
   const isUploadButtonDisabled = () => {
@@ -234,7 +236,7 @@ const ImageUploader = () => {
                 } else if (objectField.type === "dropdown") {
                   return (
                     <ImageFieldDropDown
-                      handleChange={handleChangeFields}
+                      handleChange={handleChangeFieldsDropDown}
                       name={objectField.name}
                       isRequired={objectField.isRequired}
                       key={index}

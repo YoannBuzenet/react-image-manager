@@ -1,6 +1,6 @@
 {
   "name": "react-image-manager",
-  "version": "1.0.89",
+  "version": "1.0.90",
   "description": "Manage your image library, crop image before uploading, or just activage the features you need",
   "main": "./dist/react-image-manager.js",
   "style": [

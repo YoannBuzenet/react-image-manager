@@ -27,7 +27,7 @@ const ImageFieldDropDown = ({
         {isRequired && " *"}
       </p>
       <Select
-        defaultValue={defaultValue}
+        defaultInputValue={defaultValue}
         onChange={(e) => handleChange(e, name)}
         options={keys}
         value={stateFields?.[name].value}
