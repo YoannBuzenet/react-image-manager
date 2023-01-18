@@ -1,4 +1,5 @@
 import Select from "react-select";
+import { capitalizeFirstLetter } from "../../utils";
 
 // REPRENDRE LA YO
 // De quoi générer un dropdown
@@ -16,11 +17,13 @@ const ImageFieldDropDown = ({
   stateFields,
 }) => {
   console.log("Dropdown keys", keys);
+  console.log("stateFields", stateFields);
+  console.log("name", name);
 
   return (
     <div className={"imageFieldContainer"}>
       <p>
-        {name}
+        {capitalizeFirstLetter(name)}
         {isRequired && " *"}
       </p>
       <Select
