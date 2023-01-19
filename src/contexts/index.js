@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react'
 
 export default React.createContext({
   enabledModes: ["upload", "gallery"],
@@ -32,7 +32,7 @@ export default React.createContext({
     onSuccessUpload: null,
     onFailureupload: null,
     onFailureuploadImageTooSmall: (minWidth) => {},
-    imageFields: ["name"],
+    imageFields: [],
     minWidthImageUploadInitial: null,
     minWidthImageUpload: null,
     setMinWidthImageUpload: null,

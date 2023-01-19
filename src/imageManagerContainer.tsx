@@ -1,44 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { useState } from "react";
+import { ImageManagerContainerProps } from "../index";
 import ImageManagerContext from "./contexts/index";
 import ImageManager from "./imageManager";
-import {Tag, Image, EnabledModes} from "./types/types"
-
-export type ImageManagerContainerProps = {
-  children?: any,
-  cropAspectRatio ?: any,
-  cropMinWidth?: number,
-  cropMinHeight?: number,
-  cropMaxWidth?: number,
-  cropMaxHeight?: number,
-  cropKeepSelection?: any,
-  cropDisabled?: any,
-  cropLocked?: any,
-  cropClassName?: any,
-  cropstyle?: any,
-  cropOnComplete?: any,
-  cropPercentCrop?: any,
-  cropOnDragStart?: any,
-  cropOnDragEnd?: any,
-  cropRenderSelectionAddon?: any,
-  cropRuleOfThirds?: any,
-  cropCircularCrop?: any,
-  urlUpload?: string,
-  axiosHeadersUpload?: any,
-  additionalPayloadUpload?: any,
-  onSuccessUpload?: any,
-  onFailureupload?: any,
-  onFailureuploadImageTooSmall ?: any,
-  minWidthImageUploadInitial ?: any,
-  imageFields?: any,
-  galleryImages: Image[],
-  canSelectSeveralImages?: any,
-  withTags?: boolean,
-  tagList: Tag[] ,
-  globalOnSelectImages?: any,
-  enabledModes?: EnabledModes[],
-  customPropsToPass?: any,
-};
+import { Tag, Image, EnabledModes } from "./types/types";
 
 export const ImageManagerContainer = ({
   children,

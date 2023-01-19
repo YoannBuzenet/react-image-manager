@@ -1,7 +1,8 @@
-- Remove MUI to maybe remove the `window is not defined` happening on nextjs, even next13 with full `use client`
-- Finish Setup Test app (`demo` folder) to easily test RIM
-- Setup a next app v12 to see how it behaves
-- Setup a next app v13 to see how it behaves
+- check tsconfig & wbpack to find this window problem ?
+- understand why sourcemap seems to be not used when deployed in lib
+- Finish Setup Test app (`demo` folder) to easily test RIM in a local env
+- Setup a next app v12 to see how it behaves in a local env
+- Setup a next app v13 to see how it behaves in a local env
 - Refacto, code is awful rn omg
-- Typescript ftw
+- Typescript ftw : add types everywhere and pass everything in .tsx
 - Allow more customization by user

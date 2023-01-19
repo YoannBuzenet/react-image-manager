@@ -6,14 +6,15 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "Classic",
+    "moduleResolution": "Node16",
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "./dist"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/contexts/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],
   "exclude": ["node_modules", "demo"]
 }
