@@ -84,7 +84,7 @@ const ImageUploader = () => {
   const handleChangeFieldsDropDown = (e, key) => {
     console.log("event received e", e);
     console.log("event received key", key);
-    setFields({ ...fields, [key]: { ...fields[key], value: e } });
+    setFields({ ...fields, [key]: { ...fields[key], value: e.value } });
   };
 
   const isUploadButtonDisabled = () => {
@@ -165,11 +165,11 @@ const ImageUploader = () => {
       formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
     }
 
-    formData.append("x", crop?.x * ratioDimensionsImage);
-    formData.append("y", crop?.y * ratioDimensionsImage);
-    formData.append("width", crop?.width * ratioDimensionsImage);
-    formData.append("height", crop?.height * ratioDimensionsImage);
-    formData.append("image", documentUploadedRaw, "wtf.png");
+    formData.append("x", crop?.x * ratioDimensionsImage + "");
+    formData.append("y", crop?.y * ratioDimensionsImage + "");
+    formData.append("width", crop?.width * ratioDimensionsImage + "");
+    formData.append("height", crop?.height * ratioDimensionsImage + "");
+    formData.append("image", documentUploadedRaw, "title.png");
     formData.append("tags", JSON.stringify(selectedTags));
 
     //TODO map all props and check there are no JS objects ?
@@ -257,7 +257,6 @@ const ImageUploader = () => {
                       key={index}
                       stateFields={fields}
                       keys={objectField.keys}
-                      defaultValue={objectField.defaultValue}
                     />
                   );
                 }
@@ -328,20 +327,4 @@ export default ImageUploader;
 //
 //
 //
-//
-// next
-// Regarder dans la doc de sharp si left and co sont forcément des integer avec sharp, car on a des nombres avec 8 chiffres après la virgule
-// essayer de sauvegarder une image !!
-// checker que tous les endpoins ne sont pas désormais des multi form car on n'a pas encapsulé
-//
-// prop isCropMandatory
-//
-// Endpoint back
-// Gestion image avec les data de crop
-// Sauvegarder l'image
-// Renvoyer une 200 ou 500
-
-// On passe sur la gallery (multi/mono select, pagination)
-//
-// On peut choisir les modes à activer sur l'image manager
 //

@@ -1,4 +1,16 @@
-const ImageField = ({ name, stateFields, handleChange, isRequired }) => {
+type ImageFieldProps = {
+  name: string;
+  stateFields: Record<string, any>;
+  handleChange: (e, name) => void;
+  isRequired: boolean;
+};
+
+const ImageField = ({
+  name,
+  stateFields,
+  handleChange,
+  isRequired,
+}: ImageFieldProps) => {
   return (
     <div>
       <div>

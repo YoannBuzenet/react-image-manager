@@ -69,6 +69,9 @@ All react-image-crop props can be used to custom the crop feature. For example :
 ## Style
 
 CSS can be customized. Pagination and upload inputs are handled through classic css files.
+`import "react-image-manager/dist/style.css";`
+`import "react-image-manager/dist/pagination.css";`
+`import "react-image-crop/dist/ReactCrop.css";`
 
 ### Various
 

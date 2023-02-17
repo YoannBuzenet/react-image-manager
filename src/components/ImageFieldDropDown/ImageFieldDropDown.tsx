@@ -1,14 +1,22 @@
 import Select from "react-select";
+import { ReactSelectObject } from "../../types/types";
 import { capitalizeFirstLetter } from "../../utils";
+
+type ImageFieldDropDownProps = {
+  name: string;
+  keys: ReactSelectObject[];
+  handleChange: (e, name) => void;
+  isRequired: boolean;
+  stateFields: Record<string, any>;
+};
 
 const ImageFieldDropDown = ({
   name,
   keys,
   handleChange,
   isRequired,
-  defaultValue,
   stateFields,
-}) => {
+}: ImageFieldDropDownProps) => {
   // console.log("Dropdown keys", keys);
   // console.log("stateFields", stateFields);
   // console.log("name", name);
@@ -20,7 +28,6 @@ const ImageFieldDropDown = ({
         {isRequired && " *"}
       </p>
       <Select
-        defaultInputValue={defaultValue}
         onChange={(e) => handleChange(e, name)}
         options={keys}
         value={stateFields?.[name].value}

@@ -1,4 +1,11 @@
-const CardImageObject = ({ image, isSelected }) => {
+import { Image } from "../../types/types";
+
+type CardImageObjectProps = {
+  image: Image;
+  isSelected: boolean;
+};
+
+const CardImageObject = ({ image, isSelected }: CardImageObjectProps) => {
   let imageNameClean = image.name;
   try {
     const imageNameWithoutFormat = image.name.split(".")[0];
@@ -14,7 +21,11 @@ const CardImageObject = ({ image, isSelected }) => {
     <div
       className={isSelected ? "imageContainerSelected" : "card_imageContainer"}
     >
-      <img src={image.src} alt={imageNameClean} className={"card_image"} />
+      <img
+        src={image.src}
+        alt={imageNameClean}
+        className={"card_image card_image_object"}
+      />
       <div className={"infoContainer"}>
         <p>{imageNameClean}</p>
         {image.credits && (
