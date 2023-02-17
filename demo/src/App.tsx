@@ -1,14 +1,13 @@
-import './App.css'
-import {ImageManagerContainer} from "../../src/imageManagerContainer"
-import {sampleTags,sampleListOfImages} from "./debug/dataSample.js"
-import { EnabledModes, Image } from '../../src/types/types'
-import DemoButton from './DemoButton'
-
+import "./App.css";
+import { ImageManagerContainer } from "../../src/imageManagerContainer";
+import { sampleTags, sampleListOfImages } from "./debug/dataSample.js";
+import { EnabledModes, Image } from "../../src/types/types";
+import DemoButton from "./DemoButton";
+import "../../dist/style.css";
+import "../../dist/pagination.css";
+import "../../node_modules/react-image-crop/dist/ReactCrop.css";
 
 function App() {
-
-  
-
   return (
     <div className="App">
       <ImageManagerContainer
@@ -30,37 +29,44 @@ function App() {
             type: "dropdown",
             name: "language",
             keys: [
-              { name: "e", value: "1" },
-              { name: "a", value: "2" },
+              { label: "en-US", value: "en-US" },
+              { label: "fr-FR", value: "fr-FR" },
             ],
-            defaultValue: "2",
+            defaultValue: { label: "en-US", value: "en-US" },
             isRequired: true,
           },
         ]}
         onSuccessUpload={() => {
-          console.log('Callback Prop onSuccessUpload -> Upload success !')
+          console.log("Callback Prop onSuccessUpload -> Upload success !");
         }}
         onFailureupload={() =>
-          console.log('Callback Prop onFailureupload -> Upload failure !')
+          console.log("Callback Prop onFailureupload -> Upload failure !")
         }
         onFailureuploadImageTooSmall={(minWidth: number) => {
-          console.log('Callback Prop onFailureuploadImageTooSmall -> Upload failure !. Param minWitdh : ' + minWidth)
+          console.log(
+            "Callback Prop onFailureuploadImageTooSmall -> Upload failure !. Param minWitdh : " +
+              minWidth
+          );
         }}
-        globalOnSelectImages={(arrayOfSelectedImages: Image[]) => { console.log('CallBack arrayOfSelectedImages -> Param :' + arrayOfSelectedImages)}}
+        globalOnSelectImages={(arrayOfSelectedImages: Image[]) => {
+          console.log(
+            "CallBack arrayOfSelectedImages -> Param :" + arrayOfSelectedImages
+          );
+        }}
         galleryImages={sampleListOfImages}
         tagList={sampleTags}
         withTags
         customPropsToPass={{ language: "en-us" }}
         additionalPayloadUpload={{
-          test : "additionnal Payload to send"
+          test: "additionnal Payload to send",
         }}
       >
-      <h1>Local demo/test App</h1>
+        <h1>Local demo/test App</h1>
 
-      <DemoButton />
+        <DemoButton />
       </ImageManagerContainer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
