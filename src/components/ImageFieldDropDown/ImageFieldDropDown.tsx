@@ -20,6 +20,7 @@ const ImageFieldDropDown = ({
   // console.log("Dropdown keys", keys);
   // console.log("stateFields", stateFields);
   // console.log("name", name);
+  console.log("value", stateFields?.[name].value);
 
   return (
     <div className={"imageFieldContainer"}>
