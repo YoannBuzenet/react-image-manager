@@ -1,11 +1,11 @@
 import "./App.css";
-import { ImageManagerContainer } from "../../src/imageManagerContainer";
+import { ImageManagerContainer } from "../../src/ImageManagerContainer";
 import { sampleTags, sampleListOfImages } from "./debug/dataSample.js";
 import DemoButton from "./DemoButton";
 import "../../dist/style.css";
 import "../../dist/pagination.css";
 import "../../node_modules/react-image-crop/dist/ReactCrop.css";
-import { EnabledModes, Image } from "../..";
+import { EnabledModes, Image } from "../../src/types/types";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         cropAspectRatio={2}
         urlUpload={`test/api/entities/images`}
         minWidthImageUploadInitial={700}
-        enabledModes={[EnabledModes.Gallery, EnabledModes.Upload]}
+        enabledModes={["gallery", "upload"]}
         imageFields={[
           {
             type: "input",

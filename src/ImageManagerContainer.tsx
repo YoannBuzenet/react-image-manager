@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
-import { EnabledModes, ImageManagerContainerProps } from "../index";
+import { ImageManagerContainerProps } from "../index";
 import ImageManagerContext from "./contexts/index";
-import ImageManager from "./imageManager";
+import ImageManager from "./ImageManager";
+import { EnabledModes } from "./types/types";
 
 export const ImageManagerContainer = ({
   children,
@@ -36,7 +37,7 @@ export const ImageManagerContainer = ({
   withTags = false,
   tagList = [],
   globalOnSelectImages = () => {},
-  enabledModes = [EnabledModes.Upload, EnabledModes.Gallery],
+  enabledModes = ["upload", "gallery"],
   customPropsToPass = {},
 }: ImageManagerContainerProps) => {
   const [isDisplayedImageManager, setIsDisplayedImageManager] = useState(false);
