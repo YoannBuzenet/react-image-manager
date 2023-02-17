@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
-import { ImageManagerContainerProps } from "../index";
+import { EnabledModes, ImageManagerContainerProps } from "../index";
 import ImageManagerContext from "./contexts/index";
 import ImageManager from "./imageManager";
-import { Tag, Image, EnabledModes } from "./types/types";
 
 export const ImageManagerContainer = ({
   children,

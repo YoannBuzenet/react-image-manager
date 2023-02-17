@@ -161,8 +161,6 @@ const Gallery = () => {
     setGalleryImagesAfterSearchFilter(filteredGalleryTags);
   }, [search, setSelectedTags, selectedTags.length]);
 
-  console.log("---", currentItems);
-
   return (
     <div className={"galleryContainer"}>
       <div className={"searchGalleryContainer"}>

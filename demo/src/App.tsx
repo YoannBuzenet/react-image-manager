@@ -1,11 +1,11 @@
 import "./App.css";
 import { ImageManagerContainer } from "../../src/imageManagerContainer";
 import { sampleTags, sampleListOfImages } from "./debug/dataSample.js";
-import { EnabledModes, Image } from "../../src/types/types";
 import DemoButton from "./DemoButton";
 import "../../dist/style.css";
 import "../../dist/pagination.css";
 import "../../node_modules/react-image-crop/dist/ReactCrop.css";
+import { EnabledModes, Image } from "../..";
 
 function App() {
   return (

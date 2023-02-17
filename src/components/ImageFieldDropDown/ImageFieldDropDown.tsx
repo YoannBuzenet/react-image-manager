@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { ReactSelectObject } from "../../types/types";
+import { ReactSelectObject } from "../../../index";
 import { capitalizeFirstLetter } from "../../utils";
 
 type ImageFieldDropDownProps = {

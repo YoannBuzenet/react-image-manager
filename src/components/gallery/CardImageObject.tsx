@@ -1,4 +1,4 @@
-import { Image } from "../../types/types";
+import { Image } from "../../../index";
 
 type CardImageObjectProps = {
   image: Image;
