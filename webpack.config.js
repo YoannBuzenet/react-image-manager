@@ -13,6 +13,7 @@ const config = {
       "React": "react",
    }),
   ],
+  target : "node",
   entry: [path.resolve(dir_js, "index.ts")],
   mode: "development",
   output: {
