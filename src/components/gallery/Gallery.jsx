@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import config from "../../config/config";
 import ImageManagerContext from "../../contexts/index";
-import { useWindowDimensions } from "../../hooks/hooks";
 import {
   getAllInfosFromImageHash,
   getNearestBreakPoint,
@@ -22,11 +21,7 @@ const Gallery = () => {
     onValidationCallBack,
   } = galleryProperties;
 
-  // We compute the number of images we want to displaye, following screen size.
-  const { width } = useWindowDimensions();
-  const relevantBreakPoint = getNearestBreakPoint(width);
-  const numberOfImagesDisplayed =
-    config.gallery.imagePerSizeScreen[relevantBreakPoint];
+  const numberOfImagesDisplayed = 15;
 
   // Pagination
   const [currentItems, setCurrentItems] = useState([]);
