@@ -24,6 +24,9 @@ const config = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".tsx", ".ts"],
+    fallback : {
+      fs : false
+    }
   },
   devServer: {
     contentBase: dir_build,
