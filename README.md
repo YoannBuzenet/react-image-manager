@@ -77,12 +77,16 @@ CSS can be customized. Pagination and upload inputs are handled through classic 
 
 [Gist](https://gist.github.com/YoannBuzenet/0ad6c2aa5f8f815e91282e2e26be949d) on how to resize the image with sharp library, server side
 
-TO DO
+# TO DO
 
-- Search how to make the component props displayed on vscode thanks to ts
-- Add types in index.d.ts
-- Allow better override of CSS and css-in-js
-- We can zoom and rotate the image in uploader
+### FIRST
+
+- Typescript ftw : add types everywhere and pass everything in .tsx
+
+### THEN
+
+- Refacto, code is awful rn omg
+- Allow more customization by user
 
 HELP ME ?
 

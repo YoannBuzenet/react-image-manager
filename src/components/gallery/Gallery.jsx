@@ -9,6 +9,7 @@ import {
 import Card from "./Card";
 import ReactPaginate from "react-paginate";
 import Select from "react-select";
+import { useWindowDimensions } from "../../hooks/hooks";
 
 const Gallery = () => {
   const { galleryProperties, tagList, withTags, setIsDisplayedImageManager } =
@@ -21,7 +22,10 @@ const Gallery = () => {
     onValidationCallBack,
   } = galleryProperties;
 
-  const numberOfImagesDisplayed = 15;
+  const { width } = useWindowDimensions();
+  const relevantBreakPoint = getNearestBreakPoint(width);
+  const numberOfImagesDisplayed =
+    config.gallery.imagePerSizeScreen[relevantBreakPoint];
 
   // Pagination
   const [currentItems, setCurrentItems] = useState([]);
