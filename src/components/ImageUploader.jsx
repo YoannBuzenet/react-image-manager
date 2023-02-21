@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CropImage from "./CropImage.jsx";
 import ImageManagerContext from "../contexts/index";
 import axios from "axios";
@@ -19,6 +19,7 @@ const ImageUploader = () => {
     width: null,
     height: null,
   });
+  const [shouldSendUpload, setShouldSendUpload] = useState(false);
 
   const { uploadProperties, tagList, withTags, cropProperties } =
     useContext(ImageManagerContext);
@@ -124,72 +125,79 @@ const ImageUploader = () => {
     setSelectedTags(tagsChecked);
   };
 
-  const handleUpload = async (event) => {
-    console.log("les fields", fields);
+  useEffect(() => {
+    if (shouldSendUpload) {
+      console.log("les fields", fields);
 
-    // crop format example
-    // height: 173.25559997558594
-    // unit: "px"
-    // width: 346.5111999511719
-    // x: 139.39031982421875
-    // y: 37.63502502441406
-
-    if (!uploadProperties.urlUpload) {
-      throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";
-    }
-
-    const formData = new FormData();
-
-    // Adding all the keys defined by the dev
-    for (const key in fields) {
-      console.log("key", key);
-
-      console.log("fields[key].type", fields[key].type);
-      if (fields[key].type === DROPDOWN) {
-        console.log("dropdown");
-        // value is nested in value object for react-select fonctionnning purpose
-        formData.append(key, fields[key].value.value);
-      } else {
-        console.log("pas dropdown");
-        formData.append(key, fields[key].value);
+      // crop format example
+      // height: 173.25559997558594
+      // unit: "px"
+      // width: 346.5111999511719
+      // x: 139.39031982421875
+      // y: 37.63502502441406
+      if (!uploadProperties.urlUpload) {
+        throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";
       }
-    }
 
-    // Adding custom paylord properties passed from props
-    for (const prop in uploadProperties.additionalPayloadUpload) {
-      formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
-    }
+      const formData = new FormData();
 
-    formData.append("x", crop?.x * ratioDimensionsImage + "");
-    formData.append("y", crop?.y * ratioDimensionsImage + "");
-    formData.append("width", crop?.width * ratioDimensionsImage + "");
-    formData.append("height", crop?.height * ratioDimensionsImage + "");
-    formData.append("image", documentUploadedRaw, "title.png");
-    formData.append("tags", JSON.stringify(selectedTags));
+      // Adding all the keys defined by the dev
+      for (const key in fields) {
+        console.log("key", key);
 
-    //TODO map all props and check there are no JS objects ?
+        console.log("fields[key].type", fields[key].type);
+        if (fields[key].type === DROPDOWN) {
+          console.log("dropdown");
+          // value is nested in value object for react-select fonctionnning purpose
+          formData.append(key, fields[key].value.value);
+        } else {
+          console.log("pas dropdown");
+          formData.append(key, fields[key].value);
+        }
+      }
 
-    console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
+      // Adding custom paylord properties passed from props
+      for (const prop in uploadProperties.additionalPayloadUpload) {
+        formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
+      }
 
-    try {
-      const resp = await axios.post(uploadProperties.urlUpload, formData, {
-        ...uploadProperties.axiosHeadersUpload,
-        "Content-Type": "multipart/form-data",
-      });
+      formData.append("x", crop?.x * ratioDimensionsImage + "");
+      formData.append("y", crop?.y * ratioDimensionsImage + "");
+      formData.append("width", crop?.width * ratioDimensionsImage + "");
+      formData.append("height", crop?.height * ratioDimensionsImage + "");
+      formData.append("image", documentUploadedRaw, "title.png");
+      formData.append("tags", JSON.stringify(selectedTags));
+
+      //TODO map all props and check there are no JS objects ?
+
+      console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
+
+      const resp = axios
+        .post(uploadProperties.urlUpload, formData, {
+          ...uploadProperties.axiosHeadersUpload,
+          "Content-Type": "multipart/form-data",
+        })
+        .then((resp) => {
+          if (uploadProperties.onSuccessUpload) {
+            uploadProperties.onSuccessUpload(resp);
+          }
+        })
+        .catch((e) => {
+          if (uploadProperties.onFailureupload) {
+            uploadProperties.onFailureupload(e);
+          } else {
+            console.log("Error while uploading picture. Error :", e);
+          }
+        })
+        .finally(() => {
+          setShouldSendUpload(false);
+        });
       console.log("RESP OK ?", resp);
-
-      // Success callback function if defined
-      if (uploadProperties.onSuccessUpload) {
-        uploadProperties.onSuccessUpload(resp);
-      }
-    } catch (e) {
-      // Failure callback function if defined
-      if (uploadProperties.onFailureupload) {
-        uploadProperties.onFailureupload(e);
-      } else {
-        console.log("Error while uploading picture. Error :", e);
-      }
     }
+  }, [shouldSendUpload]);
+
+  const handleUpload = async (event) => {
+    setShouldSendUpload(true);
   };
 
   console.log("image fields", uploadProperties.imageFields);
