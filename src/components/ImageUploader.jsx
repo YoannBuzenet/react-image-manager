@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import CropImage from "./CropImage.jsx";
 import ImageManagerContext from "../contexts/index";
-import axios from "axios";
 import ImageField from "./ImageFieldInput";
 import ImageFieldDropDown from "./ImageFieldDropDown/ImageFieldDropDown";
 import { WIDTH_IMAGE } from "../config/consts";
@@ -172,9 +171,9 @@ const ImageUploader = () => {
     console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
 
     try {
-      const resp = await axios.post(uploadProperties.urlUpload, formData, {
-        ...uploadProperties.axiosHeadersUpload,
-        "Content-Type": "multipart/form-data",
+      const resp = await fetch(uploadProperties.urlUpload, {
+        method: "POST",
+        body: formData,
       });
       console.log("RESP OK ?", resp);
 
