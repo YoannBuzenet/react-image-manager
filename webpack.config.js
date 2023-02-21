@@ -30,7 +30,8 @@ const config = {
       https: require.resolve("https-browserify"),
       http: require.resolve("stream-http"),
       buffer: require.resolve("buffer/"),
-      util: require.resolve("util/")
+      util: require.resolve("util/"),
+      assert: require.resolve("assert/")
     },
     aliasFields: []
   },
