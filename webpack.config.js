@@ -24,8 +24,15 @@ const config = {
   resolve: {
     extensions: [".js", ".jsx", ".tsx", ".ts"],
     fallback : {
-      fs : false
-    }
+      url: require.resolve("url/"),
+      stream: require.resolve("stream-browserify"),
+      zlib: require.resolve("browserify-zlib"),
+      https: require.resolve("https-browserify"),
+      http: require.resolve("stream-http"),
+      buffer: require.resolve("buffer/"),
+      util: require.resolve("util/")
+    },
+    aliasFields: []
   },
   devServer: {
     contentBase: dir_build,
