@@ -1,6 +1,6 @@
 {
   "name": "react-image-manager",
-  "version": "1.0.129",
+  "version": "1.0.133",
   "description": "Manage your image library, crop image before uploading, or just activage the features you need",
   "main": "./dist/react-image-manager.js",
   "style": [
@@ -12,6 +12,7 @@
     "dev": "webpack --watch",
     "build:unix": "webpack --config webpack.config.js --mode production && cp ./src/style/pagination.css ./dist/pagination.css && cp ./src/style/style.css ./dist/style.css",
     "build:publish:unix": "npm run build:unix && npm publish",
+    "build:unix:dev": "webpack --config webpack.config.js --mode development && cp ./src/style/pagination.css ./dist/pagination.css && cp ./src/style/style.css ./dist/style.css",
     "build:win": "webpack --config webpack.config.js --mode production && copy ./src/style/pagination.css ./dist/pagination.css && copy ./src/style/style.css ./dist/style.css",
     "build:publish:win": "npm run build:unix && npm publish"
   },
@@ -29,7 +30,6 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^1.1.3",
-    "browserify-fs": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-image-crop": "^10.0.7",

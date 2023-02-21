@@ -43,38 +43,33 @@ const ImageUploader = () => {
   const [fields, setFields] = useState(defaultStateFields);
 
   const handleChange = (event) => {
-    const { target } = event;
-    const { files } = target;
-    const file = files[0];
-
-    var url = URL.createObjectURL(file);
-    var img = new Image();
-    img.onload = function () {
-      if (
-        uploadProperties.minWidthImageUpload &&
-        img.width < uploadProperties.minWidthImageUpload
-      ) {
-        onFailureuploadImageTooSmall(uploadProperties.minWidthImageUpload);
-        return;
-      } else {
-        setDocumentUploadedRaw(file);
-        setDocumentUploaded(URL.createObjectURL(file));
-
-        const { width, height } = img;
-        setStateImage({
-          width,
-          height,
-        });
-
-        const adjustedHeight = Math.round((WIDTH_IMAGE * height) / width);
-        setAdjustedHeightImage(adjustedHeight);
-        setRatioDimensionsImage(width / WIDTH_IMAGE);
-
-        URL.revokeObjectURL(img.src);
-      }
-    };
-
-    img.src = url;
+    // const { target } = event;
+    // const { files } = target;
+    // const file = files[0];
+    // var url = URL.createObjectURL(file);
+    // var img = new Image();
+    // img.onload = function () {
+    //   if (
+    //     uploadProperties.minWidthImageUpload &&
+    //     img.width < uploadProperties.minWidthImageUpload
+    //   ) {
+    //     onFailureuploadImageTooSmall(uploadProperties.minWidthImageUpload);
+    //     return;
+    //   } else {
+    //     setDocumentUploadedRaw(file);
+    //     setDocumentUploaded(URL.createObjectURL(file));
+    //     const { width, height } = img;
+    //     setStateImage({
+    //       width,
+    //       height,
+    //     });
+    //     const adjustedHeight = Math.round((WIDTH_IMAGE * height) / width);
+    //     setAdjustedHeightImage(adjustedHeight);
+    //     setRatioDimensionsImage(width / WIDTH_IMAGE);
+    //     URL.revokeObjectURL(img.src);
+    //   }
+    // };
+    // img.src = url;
   };
 
   const handleChangeFields = (e, key) => {
@@ -139,62 +134,62 @@ const ImageUploader = () => {
     // x: 139.39031982421875
     // y: 37.63502502441406
 
-    if (!uploadProperties.urlUpload) {
-      throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";
-    }
+    //   if (!uploadProperties.urlUpload) {
+    //     throw "urlUpload prop is not defined. This URL is needed to know where to send the data uploaded.";
+    //   }
 
-    const formData = new FormData();
+    //   const formData = new FormData();
 
-    // Adding all the keys defined by the dev
-    for (const key in fields) {
-      console.log("key", key);
+    //   // Adding all the keys defined by the dev
+    //   for (const key in fields) {
+    //     console.log("key", key);
 
-      console.log("fields[key].type", fields[key].type);
-      if (fields[key].type === DROPDOWN) {
-        console.log("dropdown");
-        // value is nested in value object for react-select fonctionnning purpose
-        formData.append(key, fields[key].value.value);
-      } else {
-        console.log("pas dropdown");
-        formData.append(key, fields[key].value);
-      }
-    }
+    //     console.log("fields[key].type", fields[key].type);
+    //     if (fields[key].type === DROPDOWN) {
+    //       console.log("dropdown");
+    //       // value is nested in value object for react-select fonctionnning purpose
+    //       formData.append(key, fields[key].value.value);
+    //     } else {
+    //       console.log("pas dropdown");
+    //       formData.append(key, fields[key].value);
+    //     }
+    //   }
 
-    // Adding custom paylord properties passed from props
-    for (const prop in uploadProperties.additionalPayloadUpload) {
-      formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
-    }
+    //   // Adding custom paylord properties passed from props
+    //   for (const prop in uploadProperties.additionalPayloadUpload) {
+    //     formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
+    //   }
 
-    formData.append("x", crop?.x * ratioDimensionsImage + "");
-    formData.append("y", crop?.y * ratioDimensionsImage + "");
-    formData.append("width", crop?.width * ratioDimensionsImage + "");
-    formData.append("height", crop?.height * ratioDimensionsImage + "");
-    formData.append("image", documentUploadedRaw, "title.png");
-    formData.append("tags", JSON.stringify(selectedTags));
+    //   formData.append("x", crop?.x * ratioDimensionsImage + "");
+    //   formData.append("y", crop?.y * ratioDimensionsImage + "");
+    //   formData.append("width", crop?.width * ratioDimensionsImage + "");
+    //   formData.append("height", crop?.height * ratioDimensionsImage + "");
+    //   formData.append("image", documentUploadedRaw, "title.png");
+    //   formData.append("tags", JSON.stringify(selectedTags));
 
-    //TODO map all props and check there are no JS objects ?
+    //   //TODO map all props and check there are no JS objects ?
 
-    console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
+    //   console.log("headers ajoutés", uploadProperties.axiosHeadersUpload);
 
-    try {
-      const resp = await axios.post(uploadProperties.urlUpload, formData, {
-        ...uploadProperties.axiosHeadersUpload,
-        "Content-Type": "multipart/form-data",
-      });
-      console.log("RESP OK ?", resp);
+    //   try {
+    //     const resp = await axios.post(uploadProperties.urlUpload, formData, {
+    //       ...uploadProperties.axiosHeadersUpload,
+    //       "Content-Type": "multipart/form-data",
+    //     });
+    //     console.log("RESP OK ?", resp);
 
-      // Success callback function if defined
-      if (uploadProperties.onSuccessUpload) {
-        uploadProperties.onSuccessUpload(resp);
-      }
-    } catch (e) {
-      // Failure callback function if defined
-      if (uploadProperties.onFailureupload) {
-        uploadProperties.onFailureupload(e);
-      } else {
-        console.log("Error while uploading picture. Error :", e);
-      }
-    }
+    //     // Success callback function if defined
+    //     if (uploadProperties.onSuccessUpload) {
+    //       uploadProperties.onSuccessUpload(resp);
+    //     }
+    //   } catch (e) {
+    //     // Failure callback function if defined
+    //     if (uploadProperties.onFailureupload) {
+    //       uploadProperties.onFailureupload(e);
+    //     } else {
+    //       console.log("Error while uploading picture. Error :", e);
+    //     }
+    // }
   };
 
   console.log("image fields", uploadProperties.imageFields);

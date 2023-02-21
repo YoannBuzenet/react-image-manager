@@ -8,20 +8,19 @@ const dir_demo = path.resolve(__dirname, "demo");
 
 
 const config = {
-  plugins: [
-    new webpack.ProvidePlugin({
-      "React": "react",
-   }),
-  ],
-  target : "node",
   entry: [path.resolve(dir_js, "index.ts")],
-  mode: "development",
   output: {
     path: dir_build,
     filename: "react-image-manager.js",
     libraryTarget: "umd",
     globalObject: "this",
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      "React": "react",
+   }),
+  ],
+  mode: "development",
   resolve: {
     extensions: [".js", ".jsx", ".tsx", ".ts"],
     fallback : {

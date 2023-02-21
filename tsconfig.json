@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["dom", "ES2022"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "incremental": true,
     "esModuleInterop": true,
-    "module": "ES2022",
-    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "target": "ES2022",
+    "lib": ["dom", "ES2022"],
+    "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "strict": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],
   "exclude": ["node_modules", "demo"]
