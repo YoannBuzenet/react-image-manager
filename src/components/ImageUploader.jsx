@@ -172,10 +172,10 @@ const ImageUploader = () => {
       heightChecked = statImage.height;
     }
 
-    if (crop.x) {
+    if (crop?.x) {
       formData.append("x", crop?.x * ratioDimensionsImage + "");
     }
-    if (crop.y) {
+    if (crop?.y) {
       formData.append("y", crop?.y * ratioDimensionsImage + "");
     }
 
