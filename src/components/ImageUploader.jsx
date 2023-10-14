@@ -6,6 +6,7 @@ import ImageFieldDropDown from "./ImageFieldDropDown/ImageFieldDropDown";
 import { WIDTH_IMAGE } from "../config/consts";
 import { DROPDOWN } from "../consts";
 import CreatableSelect from "react-select/creatable";
+import { isNumber } from "../utils.js";
 
 const ImageUploader = () => {
   const [documentUploaded, setDocumentUploaded] = useState(null);
@@ -159,10 +160,27 @@ const ImageUploader = () => {
       formData.append(prop, uploadProperties.additionalPayloadUpload[prop]);
     }
 
-    formData.append("x", crop?.x * ratioDimensionsImage + "");
-    formData.append("y", crop?.y * ratioDimensionsImage + "");
-    formData.append("width", crop?.width * ratioDimensionsImage + "");
-    formData.append("height", crop?.height * ratioDimensionsImage + "");
+    // Making sure the width and height are numbers even if the crop did not occur
+    let widthChecked = crop?.width;
+    let heightChecked = crop?.height;
+
+    if (!isNumber(crop?.width)) {
+      widthChecked = statImage.width;
+    }
+
+    if (!isNumber(crop?.height)) {
+      heightChecked = statImage.height;
+    }
+
+    if (crop.x) {
+      formData.append("x", crop?.x * ratioDimensionsImage + "");
+    }
+    if (crop.y) {
+      formData.append("y", crop?.y * ratioDimensionsImage + "");
+    }
+
+    formData.append("width", widthChecked * ratioDimensionsImage + "");
+    formData.append("height", heightChecked * ratioDimensionsImage + "");
     formData.append("image", documentUploadedRaw, "title.png");
     formData.append("tags", JSON.stringify(selectedTags));
 

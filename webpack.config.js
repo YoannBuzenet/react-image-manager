@@ -33,7 +33,7 @@ const config = {
       util: require.resolve("util/"),
       assert: require.resolve("assert/")
     },
-    aliasFields: []
+    aliasFields: [] // Make react-select work
   },
   devServer: {
     contentBase: dir_build,
