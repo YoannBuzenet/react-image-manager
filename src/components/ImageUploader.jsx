@@ -164,6 +164,9 @@ const ImageUploader = () => {
     let widthChecked = crop?.width * ratioDimensionsImage + "";
     let heightChecked = crop?.height * ratioDimensionsImage + "";
 
+    console.log("crop", crop);
+    console.log("!isNumber(crop?.width)", !isNumber(crop?.width));
+
     if (!isNumber(crop?.width)) {
       widthChecked = statImage.width;
     }
