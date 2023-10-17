@@ -164,9 +164,7 @@ const ImageUploader = () => {
     let widthChecked = crop?.width * ratioDimensionsImage + "";
     let heightChecked = crop?.height * ratioDimensionsImage + "";
 
-    console.log("crop", crop);
-    console.log("!isNumber(crop?.width)", !isNumber(crop?.width));
-
+    // If image is not cropped, we send the inital data of the image
     if (!isNumber(crop?.width)) {
       widthChecked = statImage.width;
     }
@@ -174,13 +172,6 @@ const ImageUploader = () => {
     if (!isNumber(crop?.height)) {
       heightChecked = statImage.height;
     }
-
-    console.log("crop X", crop?.x);
-    console.log("ratioDimensionsImage", ratioDimensionsImage);
-    console.log(
-      'crop?.x * ratioDimensionsImage + ""',
-      crop?.x * ratioDimensionsImage + ""
-    );
 
     if (crop?.x) {
       formData.append("x", crop?.x * ratioDimensionsImage + "");

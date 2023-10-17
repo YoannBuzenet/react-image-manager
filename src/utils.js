@@ -91,6 +91,6 @@ export function capitalizeFirstLetter(string) {
   return string?.charAt(0)?.toUpperCase() + string?.slice(1);
 }
 
-export function isNumber(number) {
+export function isNumber(value) {
   return typeof value === 'number' && isFinite(value);
 }
