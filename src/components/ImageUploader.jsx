@@ -161,8 +161,8 @@ const ImageUploader = () => {
     }
 
     // Making sure the width and height are numbers even if the crop did not occur
-    let widthChecked = crop?.width;
-    let heightChecked = crop?.height;
+    let widthChecked = crop?.width * ratioDimensionsImage + "";
+    let heightChecked = crop?.height * ratioDimensionsImage + "";
 
     if (!isNumber(crop?.width)) {
       widthChecked = statImage.width;
@@ -179,8 +179,8 @@ const ImageUploader = () => {
       formData.append("y", crop?.y * ratioDimensionsImage + "");
     }
 
-    formData.append("width", widthChecked * ratioDimensionsImage + "");
-    formData.append("height", heightChecked * ratioDimensionsImage + "");
+    formData.append("width", widthChecked);
+    formData.append("height", heightChecked);
     formData.append("image", documentUploadedRaw, "title.png");
     formData.append("tags", JSON.stringify(selectedTags));
 
