@@ -298,7 +298,7 @@ const ImageUploader = () => {
               name="myfile"
               className="inputFile"
               onChange={handleChange}
-              accept="image/png, image/jpeg"
+              accept="image/*"
               id="uploadButton"
             />
           </div>
